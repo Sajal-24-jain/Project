@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+import { HeroComponent } from './hero/hero.component';
+import { ServicesComponent } from './services/services.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [HeroComponent, ServicesComponent, PortfolioComponent, AboutComponent, ContactComponent],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent {}

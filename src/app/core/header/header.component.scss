@@ -1,0 +1,53 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 40px;   // adjust based on your logo size
+      width: auto;
+      display: block;
+    }
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+
+    li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #2575fc;
+      }
+    }
+  }
+
+  .btn-quote {
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}

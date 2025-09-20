@@ -1,0 +1,12 @@
+<section class="contact">
+  <div class="contact-container animate">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Fill out the form below and we’ll get back to you.</p>
+    <form (ngSubmit)="submitForm()">
+      <input type="text" placeholder="Your Name" [(ngModel)]="contact.name" name="name" required />
+      <input type="email" placeholder="Your Email" [(ngModel)]="contact.email" name="email" required />
+      <textarea placeholder="Your Message" [(ngModel)]="contact.message" name="message" required></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </div>
+</section>
