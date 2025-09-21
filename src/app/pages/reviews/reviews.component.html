@@ -1,0 +1,39 @@
+<section class="reviews">
+  <div class="reviews-header">
+    <h1 class="subtitle">Reviews</h1>
+    <p class="italic">Our Success lies in Customer's Delight</p>
+    <p>We don't simply deliver projects, we deliver values. The values that can impact life. We will stop here, but don't forget to hear from our precious customers.</p>
+  </div>
+
+  <!-- Review Form -->
+  <!-- <form (ngSubmit)="submitReview()" class="review-form">
+    <input type="text" placeholder="Your Name" [(ngModel)]="newReview.name" name="name" required />
+    <textarea placeholder="Your Review" [(ngModel)]="newReview.message" name="message" required></textarea> -->
+
+    <!-- Star Rating -->
+    <!-- <div class="rating">
+      <span *ngFor="let star of [1,2,3,4,5]"
+            (click)="setRating(star)"
+            [class.filled]="star <= newReview.rating">★</span>
+    </div>
+
+    <button type="submit">Submit Review</button>
+  </form> -->
+
+  <!-- Reviews Grid Slider -->
+  <div class="slider-container">
+    <button class="nav prev" (click)="prevSlide()">‹</button>
+
+    <div class="reviews-grid">
+      <div class="review-card" *ngFor="let r of visibleReviews">
+        <h3>{{ r.name }}</h3>
+        <div class="stars">
+          <span *ngFor="let star of getStars(r.rating)">{{ star }}</span>
+        </div>
+        <p class="message">“{{ r.message }}”</p>
+      </div>
+    </div>
+
+    <button class="nav next" (click)="nextSlide()">›</button>
+  </div>
+</section>
