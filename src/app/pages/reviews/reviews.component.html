@@ -1,9 +1,9 @@
-<section class="reviews">
+<!-- <section class="reviews">
   <div class="reviews-header">
     <h1 class="subtitle">Reviews</h1>
     <p class="italic">Our Success lies in Customer's Delight</p>
     <p>We don't simply deliver projects, we deliver values. The values that can impact life. We will stop here, but don't forget to hear from our precious customers.</p>
-  </div>
+  </div> -->
 
   <!-- Review Form -->
   <!-- <form (ngSubmit)="submitReview()" class="review-form">
@@ -21,7 +21,7 @@
   </form> -->
 
   <!-- Reviews Grid Slider -->
-  <div class="slider-container">
+  <!-- <div class="slider-container">
     <button class="nav prev" (click)="prevSlide()">‹</button>
 
     <div class="reviews-grid">
@@ -36,4 +36,35 @@
 
     <button class="nav next" (click)="nextSlide()">›</button>
   </div>
-</section>
+</section> -->
+
+
+<div class="reviews-container">
+  <h2 class="title">Client Reviews</h2>
+
+  <div class="review-content">
+    <span class="quote left">“</span>
+    <p class="review-text">
+      {{ reviews[currentIndex].message }}
+    </p>
+    <span class="quote right">”</span>
+  </div>
+
+  <div class="client-info">
+    <img
+      class="client-image"
+      [src]="reviews[currentIndex].image"
+      alt="{{ reviews[currentIndex].name }}"
+    />
+    <div>
+      <h3>{{ reviews[currentIndex].name }}</h3>
+      <p>{{ reviews[currentIndex].company }}</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <button (click)="prevReview()">&#10094;</button>
+    <button (click)="nextReview()">&#10095;</button>
+  </div>
+</div>
