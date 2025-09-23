@@ -46,9 +46,13 @@ export class ContactComponent {
   };
 
   submitForm() {
-    console.log('Form submitted:', this.contact);
-    // Here you can integrate API call to send the form
-    alert('Thank you for reaching out! We’ll get back to you soon.');
-    this.contact = { name: '', email: '', subject: '', message: '' };
+     if (this.contact.name && this.contact.email && this.contact.subject && this.contact.message) {
+      // Here you can integrate API call to send the form
+      alert('Thank you for reaching out! We’ll get back to you soon.');
+      this.contact = { name: '', email: '', subject: '', message: '' };
+    }
+    else {
+      alert('Please fill in all fields.');
+    }
   }
 }
