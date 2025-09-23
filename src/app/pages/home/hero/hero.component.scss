@@ -199,6 +199,24 @@
   justify-content: center;
   color: white;
 
+$contentWidth: 500px; // adjust to fit your headline
+$maskSize: 80px;
+$speed: 1s;
+$borderOffset: 8px;
+$maskColor: #89cb66;
+
+$animationProps: $speed linear infinite alternate;
+
+@keyframes mask-move {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX($contentWidth - $maskSize); }
+}
+
+@keyframes mask-inner-move {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-($contentWidth - $maskSize)); }
+}
+
   .content-container {
     position: relative;
     z-index: 10;
@@ -207,15 +225,48 @@
     padding: 2rem;
 
     h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #fff, #acacac);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      // font-size: 3.5rem;
+      // font-weight: 800;
+      // margin-bottom: 1.5rem;
+      // background: linear-gradient(to right, #fff, #acacac);
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      // text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+position: relative;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    width: $contentWidth;
+    background: linear-gradient(to right, #fff, #acacac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+    // blurred shadow behind
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      filter: blur(3px);
     }
 
+    // moving mask lines
+    &::after {
+      content: '';
+      position: absolute;
+      top: -($borderOffset / 2);
+      left: 0;
+      width: $maskSize;
+      height: calc(100% + #{$borderOffset});
+      border-top: 2px solid;
+      border-bottom: 2px solid;
+      animation: mask-move $animationProps;
+
+    }
+  }
     p {
       font-size: 1.2rem;
       line-height: 1.6;
