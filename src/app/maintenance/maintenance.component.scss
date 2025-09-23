@@ -1,14 +1,172 @@
-.maintenance {
-  text-align: center;
-  margin-top: 4rem;
+/* maintenance.component.scss */
 
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+/* Google font (component-scoped import) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:host {
+  display: block;
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+/* Center and card */
+form {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(18, 38, 86, 0.06);
+  border: 1px solid rgba(18, 38, 86, 0.03);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Full width row (use when element should span both columns) */
+.full-row {
+  grid-column: 1 / -1;
+}
+
+/* Labels are visually hidden (we're using placeholders), but keep accessible */
+label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Inputs / selects / textarea */
+input[type="text"],
+input[type="email"],
+select,
+textarea,
+input[type="file"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(18,38,86,0.09);
+  background: #f9fbff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 160ms ease;
+  color: #0f1724;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* Hover / focus states */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  transform: translateY(-1px);
+  border-color: rgba(40, 116, 240, 0.85);
+  box-shadow: 0 6px 18px rgba(40,116,240,0.06), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: #96a0b5;
+  opacity: 1;
+}
+
+/* Textarea specifics */
+textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.45;
+  padding-top: 14px;
+}
+
+/* Select styling with custom arrow */
+select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #667eea 50%),
+                    linear-gradient(135deg, #667eea 50%, transparent 50%),
+                    linear-gradient(to right, rgba(18,38,86,0.04), rgba(18,38,86,0.04));
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px), 100% 0;
+  background-size: 6px 6px, 6px 6px, 1px 100%;
+  background-repeat: no-repeat;
+  padding-right: 44px;
+}
+
+/* File input: make it prettier */
+input[type="file"] {
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px dashed rgba(18,38,86,0.06);
+  color: #164e63;
+  font-weight: 500;
+}
+
+/* Button styling */
+button[type="submit"] {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%);
+  box-shadow: 0 8px 22px rgba(79,70,229,0.14);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  margin-top: 6px;
+}
+
+/* Button hover & active */
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(79,70,229,0.16);
+}
+button[type="submit"]:active { transform: translateY(0); }
+
+/* Simple validation visuals using :invalid if HTML required used */
+input:invalid, textarea:invalid {
+  border-color: rgba(220, 38, 38, 0.18);
+  box-shadow: 0 6px 18px rgba(220,38,38,0.04);
+}
+
+/* Small helper subtext (if you add spans) */
+.helper {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Responsive: single column on small screens */
+@media (max-width: 760px) {
+  :host { padding: 1rem; }
+  form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    gap: 12px;
   }
 
-  p {
-    font-size: 1.2rem;
-    color: #555;
+  button[type="submit"] {
+    font-size: 0.98rem;
   }
 }
+
+/* Optional: subtle entrance animation */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.995); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+form { animation: floatIn 420ms cubic-bezier(.2,.9,.2,1); }
