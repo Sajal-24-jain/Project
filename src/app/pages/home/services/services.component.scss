@@ -41,58 +41,73 @@
       color: #555;
     }
 
-    .cta {
-      margin-top: 1rem;
-      background: #e63946;
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
+    .btn {
+      background: linear-gradient(90deg, #ff3a82, #5233ff);
+      color: white;
+      font-weight: 600;
       font-size: 1rem;
-      border-radius: 25px;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 50px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
 
       &:hover {
-        background: #b81c2b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
       }
     }
   }
 
   // Service cards
   .service-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 2 columns
+  column-gap: 5rem; // spacing between columns
+  row-gap: 1rem;   // reduced spacing between rows
+  justify-items: center;
 
-    .card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      transition: 0.3s;
+  .card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: 0.3s;
+    width: 100%;
 
-      &:hover {
-        transform: translateY(-5px);
-      }
+    &:hover {
+      transform: translateY(-5px);
+    }
 
-      i {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
-        color: #e63946;
-      }
+    i {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+       color: linear-gradient(90deg, #ff3a82, #5233ff);
+    }
 
-      h3 {
-        margin-bottom: 0.5rem;
-        color: #222;
-      }
+    h3 {
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
 
-      p {
-        color: #666;
-        font-size: 0.95rem;
-      }
+    p {
+      color: #666;
+      font-size: 0.95rem;
     }
   }
+
+  // last card (Box 5) should be centered
+  .card:last-child {
+    grid-column: span 2;    // take up both columns
+    justify-self: center;   // center it
+    width: auto;            // don't stretch full width
+  }
+}
+
 
   // Responsive
   @media (max-width: 900px) {
