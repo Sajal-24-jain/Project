@@ -20,22 +20,66 @@
     }
   }
 
+  // .nav-links {
+  //   list-style: none;
+  //   display: flex;
+  //   gap: 1.5rem;
+
+  //   li a {
+  //     text-decoration: none;
+  //     font-weight: 1000;
+  //     color: #333;
+  //     transition: color 0.3s;
+
+  //     &:hover {
+  //       color: #e63946;
+  //     }
+  //   }
+  // }
+
+
   .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
 
-    li a {
-      text-decoration: none;
-      font-weight: 1000;
-      color: #333;
-      transition: color 0.3s;
+  li a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 1000;
+    color: #333;
+    transition: color 0.3s;
 
-      &:hover {
-        color: #2575fc;
+    // underline effect
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px; // space below text
+      width: 0%;
+      height: 2px;
+      background: #e63946; // underline color
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover {
+      color: #e63946;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    // for active Angular route
+    &.active {
+      color: #e63946;
+
+      &::after {
+        width: 100%;
       }
     }
   }
+}
 
   .btn-quote {
     background: linear-gradient(90deg, #ff3a82, #5233ff);
