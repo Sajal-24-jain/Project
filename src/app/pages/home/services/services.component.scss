@@ -80,7 +80,19 @@
     width: 100%;
 
     &:hover {
+      // transform: translateY(-5px);
       transform: translateY(-5px);
+    background: #e63946; // new hover background
+    color: #fff;          // changes text color
+
+    i {
+      color: #fff;        // icon color on hover
+    }
+
+    h3, p {
+      color: #fff;        // text color on hover
+    }
+
     }
 
     i {
