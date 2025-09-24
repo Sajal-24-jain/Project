@@ -126,24 +126,6 @@ export class ReviewsComponent {
     company: 'Visionary Tech',
     image: 'https://i.pravatar.cc/80?img=19'
   },
-   {
-    message: `The website revamp exceeded expectations – clean, fast, and user-friendly.`,
-    name: 'Shivani Deshmukh',
-    company: 'AlphaCorp',
-    image: 'https://i.pravatar.cc/80?img=21'
-  },
-  {
-    message: `Great communication and excellent support throughout our project.`,
-    name: 'Vikram Singh',
-    company: 'CloudMatrix',
-    image: 'https://i.pravatar.cc/80?img=22'
-  },
-  {
-    message: `We saw an immediate boost in engagement after their social media strategy.`,
-    name: 'Ananya Reddy',
-    company: 'GreenTech',
-    image: 'https://i.pravatar.cc/80?img=23'
-  },
   ];
 
   currentIndex = 0;
