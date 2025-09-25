@@ -1,10 +1,10 @@
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports:[NgClass],
+  imports:[NgClass,CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

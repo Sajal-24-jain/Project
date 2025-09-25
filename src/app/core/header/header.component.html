@@ -15,6 +15,7 @@
 
   <!-- Theme Toggle Button -->
   <button class="btn-theme" (click)="toggleTheme()">
-    {{ isDarkTheme ? 'Light Mode' : 'Dark Mode' }}
-  </button>
+  <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
+  <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
+</button>
 </nav>
