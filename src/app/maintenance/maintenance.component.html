@@ -1,4 +1,76 @@
-<div class="maintenance">
-  <h1>🚧 Page Under Maintenance</h1>
-  <p>We’re working hard to get this page up and running. Please check back soon!</p>
+<section id="contact"> ... </section>
+<div class="container" (click)="closeModal()" *ngIf="showModal" class="modal show">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Success!</h2>
+    <p>Your form has been submitted successfully.</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Left video section -->
+  <div class="video-section">
+    <img src="assets/talk.gif" alt="Page Image">
+    <div class="caption">Talk to Us</div>
+  </div>
+
+  <!-- Form section -->
+  <div class="form-section">
+    <form #form="ngForm" (ngSubmit)="submit(form)">
+      
+      <input type="text" placeholder="Name" 
+       [(ngModel)]="formData.name" name="name" required 
+       minlength="2"
+       pattern="^[A-Za-z ]+$"
+       #name="ngModel"
+       [class.invalid]="name.invalid && name.touched" />
+
+<!-- Error Messages -->
+<div class="error" *ngIf="name.errors && name.touched">
+  <span *ngIf="name.errors['required']">Name is required</span>
+  <span *ngIf="name.errors['minlength']">Name must be at least 2 characters</span>
+  <span *ngIf="name.errors['pattern']">Name can only contain letters and spaces</span>
+</div>
+
+
+      <input type="email" placeholder="Email" 
+             [(ngModel)]="formData.email" name="email" required email
+             #email="ngModel"
+             [class.invalid]="email.invalid && email.touched" />
+      <div class="error" *ngIf="email.invalid && email.touched">Valid email is required</div>
+
+      <input type="text" placeholder="Project Name" 
+             [(ngModel)]="formData.projectName" name="projectName" required
+             #projectName="ngModel"
+             [class.invalid]="projectName.invalid && projectName.touched" />
+      <div class="error" *ngIf="projectName.invalid && projectName.touched">Project name is required</div>
+
+      <input type="text" placeholder="Project Tech" 
+             [(ngModel)]="formData.projectTech" name="projectTech" />
+
+      <select [(ngModel)]="formData.projectType" name="projectType" required #projectType="ngModel"
+              [class.invalid]="projectType.invalid && projectType.touched">
+        <option value="">-- Select Project Type --</option>
+        <option value="Full Stack">Full Stack</option>
+        <option value="Backend">Backend</option>
+        <option value="Frontend">Frontend</option>
+      </select>
+      <div class="error" *ngIf="projectType.invalid && projectType.touched">Project type is required</div>
+
+      <select [(ngModel)]="formData.platform" name="platform" required #platform="ngModel"
+              [class.invalid]="platform.invalid && platform.touched">
+        <option value="">-- Select Platform --</option>
+        <option value="Mobile App">Mobile App</option>
+        <option value="Web App">Web App</option>
+      </select>
+      <div class="error" *ngIf="platform.invalid && platform.touched">Platform is required</div>
+
+      <textarea placeholder="Project Description" 
+                [(ngModel)]="formData.description" name="description"></textarea>
+
+      <!-- <input type="file" (change)="onFileSelected($event)" /> -->
+
+      <button type="submit" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
 </div>

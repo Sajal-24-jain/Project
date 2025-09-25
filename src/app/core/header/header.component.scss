@@ -1,22 +1,45 @@
 .navbar {
-  position: sticky;
+  position: fixed;
+  width: 97%;
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 10%;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  left: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  height: 10vh;
+
+  &.transparent {
+    background-color: transparent;
+    box-shadow: none;
+    color: white;
+
+    .nav-links a,
+    .btn-quote {
+      color: white;
+    }
+  }
+
+  &.colored {
+    background-color: #f8f8f8; // off-white
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    color: #333;
+
+    .nav-links a,
+    .btn-quote {
+      color: #333;
+    }
+  }
 
   .logo {
     display: flex;
     align-items: center;
 
-    img {
-      height: 40px;   // adjust based on your logo size
-      width: auto;
-      display: block;
+    #logo {
+      width: 8vw;
+      max-width: 60px; // optional: keeps it reasonable on small screens
     }
   }
 
@@ -38,19 +61,24 @@
   // }
 
 
-  .nav-links {
-  list-style: none;
+.nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem; // took yash-branch spacing (more roomy)
+  list-style: none;
 
-  li a {
+  li {
+    list-style: none; // prevents bullets
+  }
+
+  a {
     position: relative;
     text-decoration: none;
-    font-weight: 1000;
+    font-weight: 600; // balanced between 500 (yash) & 1000 (main)
     color: #333;
-    transition: color 0.3s;
+    cursor: pointer;
+    transition: color 0.3s ease;
 
-    // underline effect
+    // underline effect (from main)
     &::after {
       content: "";
       position: absolute;
@@ -70,7 +98,6 @@
       width: 100%;
     }
 
-    // for active Angular route
     &.active {
       color: #e63946;
 
@@ -81,23 +108,149 @@
   }
 }
 
-  .btn-quote {
-    background: linear-gradient(90deg, #ff3a82, #5233ff);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
 
-    &:hover {
-      transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+  .btn-quote {
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #ff3a82, #5233ff);
+  color: white;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.95); /* shrink effect */
+    background: linear-gradient(90deg, #ff1a5f, #3a00ff); /* darker/red effect */
+    box-shadow: 0 2px 10px rgba(255, 58, 130, 0.5);
+  }
+}
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+    height: 12vh;
+
+    .nav-links {
+      gap: 1rem;
+
+      a {
+        font-size: 0.9rem;
+      }
     }
+
+
+
+    .btn-quote {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+section {
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  &.active-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 0, 0, 0.3); // semi-transparent red overlay
+    pointer-events: none; // so it doesn’t block clicks
+    animation: fadeOut 1s forwards;
+    z-index: 10;
+  }
+
+  
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+/* Default light theme */
+body.light-theme {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Optional: adjust links/buttons */
+body.dark-theme a,
+body.dark-theme .nav-links a,
+body.dark-theme .btn-theme {
+  color: white;
+}
+
+body.light-theme a,
+body.light-theme .nav-links a,
+body.light-theme .btn-theme {
+  color: #333;
+}
+
+.btn-theme {
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* Default gradient for light/dark toggle */
+  background: linear-gradient(90deg, #5233ff, #ff3a82);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(82, 51, 255, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(82, 51, 255, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 12px rgba(82, 51, 255, 0.5);
+  }
+}
+
+/* Light Theme Adjustments */
+body.light-theme .btn-theme {
+  background: linear-gradient(90deg, #ff3a82, #5233ff);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 58, 130, 0.3);
+
+  &:hover {
+    box-shadow: 0 6px 25px rgba(255, 58, 130, 0.5);
+  }
+}
+
+/* Dark Theme Adjustments */
+body.dark-theme .btn-theme {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
+
+  &:hover {
+    box-shadow: 0 6px 25px rgba(37, 117, 252, 0.5);
   }
 }

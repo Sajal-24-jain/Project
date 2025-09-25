@@ -29,10 +29,11 @@
 
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';  
+import { MaintenanceComponent } from '../../../maintenance/maintenance.component';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule],
+  imports: [FormsModule, MaintenanceComponent],
   standalone: true,
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
