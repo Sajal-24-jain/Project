@@ -9,7 +9,7 @@
   justify-content: space-between;
   padding: 1rem 2rem;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  height: 10vh;
+  height: 6vh;
 
   &.transparent {
     background-color: transparent;
@@ -38,8 +38,8 @@
     align-items: center;
 
     #logo {
-      width: 10vw;
-      height: 15vh;
+      width: 20vw;
+      height: 25vh;
       // max-width: 60px; // optional: keeps it reasonable on small screens
     }
   }
@@ -255,3 +255,4 @@ body.dark-theme .btn-theme {
     box-shadow: 0 6px 25px rgba(37, 117, 252, 0.5);
   }
 }
+

@@ -5,11 +5,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { AboutComponent } from './about/about.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
 import { ContactComponent } from './contact/contact.component';
+import { MaintenanceComponent } from '../../maintenance/maintenance.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ServicesComponent, PortfolioComponent, AboutComponent, ReviewsComponent, ContactComponent],
+  imports: [HeroComponent, ServicesComponent, PortfolioComponent, AboutComponent, ReviewsComponent, MaintenanceComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

@@ -1,7 +1,7 @@
 <nav class="navbar" [ngClass]="{ 'transparent': isHero, 'colored': !isHero }">
   <div class="logo">
     <a (click)="scrollToSection('hero')">
-      <img id="logo" src="../../../assets/logo1.png" alt="Logo"/>
+      <img id="logo" [src]="currentLogo" alt="Logo"/>
     </a>
   </div>
 
