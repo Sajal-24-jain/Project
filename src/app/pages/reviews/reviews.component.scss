@@ -1,15 +1,30 @@
 
 
+// .reviews-container {
+//   background: linear-gradient(135deg, #0a0033, #220044, #330066);
+//   color: #fff;
+//   padding: 50px 20px;
+//   border-radius: 15px;
+//   text-align: center;
+//   position: relative;
+//   max-width: 800px;
+//   margin: auto;
+//   margin-bottom: 50px;
+// }
 .reviews-container {
+  width: auto; /* full width */
   background: linear-gradient(135deg, #0a0033, #220044, #330066);
+  //  background: url("../../../assets/banner3.jpg") no-repeat center center/cover; 
   color: #fff;
   padding: 50px 20px;
-  border-radius: 15px;
+  border-radius: 0; /* remove rounded edges if you want edge-to-edge */
   text-align: center;
   position: relative;
-  max-width: 800px;
-  margin: auto;
-  margin-bottom: 50px;
+
+  display: flex;              /* flexbox for centering */
+  flex-direction: column;     /* stack content vertically */
+  align-items: center;        /* horizontal center */
+  justify-content: center;    /* vertical center (if given height) */
 }
 
 .title {
@@ -33,23 +48,34 @@
 
 .left {
   position: absolute;
-  top: -20px;
-  left: -20px;
+  top: -30px;
+  left: -30px;
 }
 
 .right {
   position: absolute;
-  bottom: -20px;
-  right: -20px;
+  bottom: -50px;
+  right: -30px;
 }
+
+// .client-info {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 170px;
+//   gap: 15px;
+// }
 
 .client-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 170px;
-  gap: 15px;
+  margin-top: 170px;  /* reduced from 170px so line looks natural */
+  gap: 20px;
+  border-top: 3px solid rgba(255, 255, 255, 0.4); /* line */
+  padding-top: 20px; /* space above client info */
 }
+
 
 .client-image {
   width: 60px;
@@ -57,8 +83,31 @@
   border-radius: 50%;
 }
 
+// .nav-buttons {
+//   margin-top: 20px;
+  
+// }
+
+// .nav-buttons button {
+//   background: transparent;
+//   border: none;
+//   font-size: 2rem;
+//   color: #00aaff;
+//   cursor: pointer;
+//   margin: 0 10px;
+//   transition: 0.3s;
+// }
+
+// .nav-buttons button:hover {
+//   color: #fff;
+// }
+
+
 .nav-buttons {
   margin-top: 20px;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 300px; /* space between buttons */
 }
 
 .nav-buttons button {
@@ -67,7 +116,6 @@
   font-size: 2rem;
   color: #00aaff;
   cursor: pointer;
-  margin: 0 10px;
   transition: 0.3s;
 }
 
