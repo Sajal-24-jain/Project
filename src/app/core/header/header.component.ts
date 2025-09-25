@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
- 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+  scrollToSection(sectionId: string) {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
 }
