@@ -1,12 +1,12 @@
 .portfolio {
   padding: 4rem 2rem;
   text-align: center;
-  background: #f9f9f9;
+  transition: background 0.3s, color 0.3s;
 
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #111;
+    transition: color 0.3s;
   }
 
   .projects {
@@ -20,7 +20,7 @@
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.3s, color 0.3s;
 
     &:hover {
       transform: translateY(-5px);
@@ -35,12 +35,13 @@
     h3 {
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
-      color: #222;
+      transition: color 0.3s;
     }
 
     p {
       color: #555;
       font-size: 0.95rem;
+      transition: color 0.3s;
     }
 
     .view-btn {
@@ -56,6 +57,67 @@
       &:hover {
         background: #6a11cb;
       }
+    }
   }
 }
+
+/* -------- Light Theme -------- */
+body.light-theme .portfolio {
+  background: #f9f9f9;
+
+  h2 {
+    color: #111;
+  }
+
+  .project-card {
+    background: #fff;
+
+    h3 {
+      color: #222;
+    }
+
+    p {
+      color: #555;
+    }
+  }
+
+  .project-card .view-btn {
+    background: #2575fc;
+    color: white;
+
+    &:hover {
+      background: #6a11cb;
+    }
+  }
+}
+
+/* -------- Dark Theme -------- */
+body.dark-theme .portfolio {
+  background: #121212;
+
+  h2 {
+    color: #eee;
+  }
+
+  .project-card {
+    background: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+
+    h3 {
+      color: #eee;
+    }
+
+    p {
+      color: #ccc;
+    }
+  }
+
+  .project-card .view-btn {
+    background: #2575fc;
+    color: white;
+
+    &:hover {
+      background: #6a11cb;
+    }
+  }
 }

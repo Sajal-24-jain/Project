@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Default light theme */
+body.light-theme {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Optional: adjust links/buttons */
+body.dark-theme a,
+body.dark-theme .nav-links a,
+body.dark-theme .btn-theme {
+  color: white;
+}
+
+body.light-theme a,
+body.light-theme .nav-links a,
+body.light-theme .btn-theme {
+  color: #333;
+}

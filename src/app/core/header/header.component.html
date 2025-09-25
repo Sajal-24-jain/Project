@@ -1,7 +1,7 @@
-<nav class="navbar">
+<nav class="navbar" [ngClass]="{ 'transparent': isHero, 'colored': !isHero }">
   <div class="logo">
     <a (click)="scrollToSection('hero')">
-      <img src="../../../assets/logo1.png" alt="Logo">
+      <img id="logo" src="../../../assets/logo1.png" alt="Logo"/>
     </a>
   </div>
 
@@ -13,5 +13,8 @@
     <li><a (click)="scrollToSection('contact')">Contact</a></li>
   </ul>
 
-  <button class="btn-quote" (click)="scrollToSection('contact')">Talk To Us</button>
+  <!-- Theme Toggle Button -->
+  <button class="btn-theme" (click)="toggleTheme()">
+    {{ isDarkTheme ? 'Light Mode' : 'Dark Mode' }}
+  </button>
 </nav>

@@ -1,4 +1,4 @@
-/* Container Layout */
+/* Base Container Layout */
 .container {
   display: flex;
   align-items: stretch;
@@ -6,22 +6,21 @@
   padding: 40px;
   gap: 40px;
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #f9fafc, #eef1f5);
   min-height: 100vh;
   box-sizing: border-box;
 }
 
-/* Left Video Section */
+/* Video Section */
 .video-section {
   flex: 1;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .video-section img {
@@ -43,10 +42,10 @@
 /* Form Section */
 .form-section {
   flex: 1;
-  background: #fff;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 form {
@@ -61,7 +60,7 @@ input, select, textarea {
   border: 1px solid #dcdcdc;
   border-radius: 8px;
   font-size: 15px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -133,6 +132,7 @@ button:disabled {
   text-align: center;
   animation: popIn 0.35s ease;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
 .modal-content h2 {
@@ -171,4 +171,78 @@ button:disabled {
     flex-direction: column;
     padding: 20px;
   }
+}
+
+/* ---------- Dark & Light Theme Support ---------- */
+body.light-theme {
+  background-color: #f9fafc;
+  color: #333;
+}
+
+body.light-theme .container {
+  background: transparent;
+}
+
+body.light-theme .video-section,
+body.light-theme .form-section {
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme input,
+body.light-theme select,
+body.light-theme textarea {
+  background: #fff;
+  color: #333;
+  border: 1px solid #dcdcdc;
+}
+
+body.light-theme button {
+  background: #0078ff;
+  color: #fff;
+}
+
+body.light-theme .modal-content {
+  background: #fff;
+  color: #333;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-theme .container {
+  background: transparent;
+}
+
+body.dark-theme .video-section,
+body.dark-theme .form-section {
+  background: #1e1e1e;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background: #2a2a2a;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-theme button {
+  background: #0078ff;
+  color: #fff;
+}
+
+body.dark-theme button:hover {
+  background: #005fcc;
+}
+
+body.dark-theme .modal-content {
+  background: #1e1e1e;
+  color: #eee;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
