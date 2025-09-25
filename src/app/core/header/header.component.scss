@@ -43,22 +43,71 @@
     }
   }
 
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none; // remove bullets
+  // .nav-links {
+  //   list-style: none;
+  //   display: flex;
+  //   gap: 1.5rem;
 
-    li {
-      list-style: none; // remove bullets if <li> is used
+  //   li a {
+  //     text-decoration: none;
+  //     font-weight: 1000;
+  //     color: #333;
+  //     transition: color 0.3s;
+
+  //     &:hover {
+  //       color: #e63946;
+  //     }
+  //   }
+  // }
+
+
+.nav-links {
+  display: flex;
+  gap: 2rem; // took yash-branch spacing (more roomy)
+  list-style: none;
+
+  li {
+    list-style: none; // prevents bullets
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 600; // balanced between 500 (yash) & 1000 (main)
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    // underline effect (from main)
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px; // space below text
+      width: 0%;
+      height: 2px;
+      background: #e63946; // underline color
+      transition: width 0.3s ease-in-out;
     }
 
-    a {
-      text-decoration: none;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.3s ease;
+    &:hover {
+      color: #e63946;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &.active {
+      color: #e63946;
+
+      &::after {
+        width: 100%;
+      }
     }
   }
+}
+
 
   .btn-quote {
   border: none;

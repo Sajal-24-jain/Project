@@ -19,7 +19,7 @@
         color: #e63946;
         font-weight: 700;
         display: inline-block;
-        min-width: 120px;
+        min-width: 120px; // prevents layout jump when switching words
       }
 
       .fade {
@@ -67,9 +67,9 @@
   /* Service Cards */
   .service-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 5rem;
-    row-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr); // 2 columns
+    column-gap: 5rem; // spacing between columns
+    row-gap: 1rem;   // reduced spacing between rows
     justify-items: center;
 
     .card {
