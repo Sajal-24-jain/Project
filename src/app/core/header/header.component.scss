@@ -256,26 +256,40 @@ body.light-theme .btn-theme {
 //   }
 // }
 
+// .btn-theme {
+//   background: none; /* Remove any background */
+//   border: none;     /* Remove border */
+//   cursor: pointer;
+//   padding: 0;       /* Optional: remove extra padding */
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   color: inherit;   /* Inherit color from light/dark theme */
+// }
+
 .btn-theme {
-  background: none; /* Remove any background */
-  border: none;     /* Remove border */
+  background: none; /* No background */
+  border: 2px solid currentColor; /* Border uses current text color */
+  border-radius: 50%; /* Makes it circular */
   cursor: pointer;
-  padding: 0;       /* Optional: remove extra padding */
+  padding: 0.5rem; /* Add spacing inside the circle */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: inherit;   /* Inherit color from light/dark theme */
+  color: inherit; /* Adapts to theme */
+  transition: all 0.3s ease;
 }
 
 .btn-theme i,
 .btn-theme .material-icons {
-  font-size: 1.5rem;
-  line-height: 1;
+  font-size: 1rem;
+  line-height: 1;;
 }
 
 .btn-theme:hover {
   transform: scale(1.1);
   color: #e63946;
+  border-color: #e63946;
 }
 
 .btn-theme:active {
@@ -285,8 +299,10 @@ body.light-theme .btn-theme {
 /* Theme-specific colors */
 body.light-theme .btn-theme {
   color: #000;
+  
 }
 
 body.dark-theme .btn-theme {
   color: #fff;
+  
 }
