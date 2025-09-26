@@ -297,12 +297,24 @@ body.light-theme .btn-theme {
 }
 
 /* Theme-specific colors */
-body.light-theme .btn-theme {
-  color: #000;
+// body.light-theme .btn-theme {
+//   color: #000;
   
+// }
+
+// body.dark-theme .btn-theme {
+//   color: #fff;
+  
+// }
+
+//new 
+.navbar .btn-theme {
+  color: #333;        // default for light navbar
+  border-color: #333; // visible border
 }
 
-body.dark-theme .btn-theme {
-  color: #fff;
-  
+.navbar.transparent .btn-theme {
+  color: #fff;        // on hero/transparent navbar
+  border-color: #fff;
 }
+
