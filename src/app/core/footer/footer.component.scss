@@ -69,7 +69,7 @@
   .logo-section {
   display: flex;
   align-items: center; /* vertically center logo + text */
-  gap: 1rem; /* space between logo and text */
+  gap: 0.8rem; /* space between logo and text */
 
   img.logo {
     max-width: 80px;   /* smaller width since it sits left */
