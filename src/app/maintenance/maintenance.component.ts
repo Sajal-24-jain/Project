@@ -11,27 +11,32 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./maintenance.component.scss']
 })
 export class MaintenanceComponent {
-  formData: any = {};
-  selectedFile: File | null = null;
+  formData: any = {
+    name: '',
+    email: '',
+    projectName: '',
+    projectTech: '',
+    projectType: '',
+    platform: '',
+    description: ''
+  };
+
   showModal = false;
 
-  scriptUrl = "https://script.google.com/macros/s/AKfycbzGL6vNz6lUrt6CYN6Wo_QCAVL9PuVUYmTF3KMHAoyg_2BagPxsb6idqAIp9xQjVfSFrg/exec";
+  scriptUrl =
+    'https://script.google.com/macros/s/AKfycbzGL6vNz6lUrt6CYN6Wo_QCAVL9PuVUYmTF3KMHAoyg_2BagPxsb6idqAIp9xQjVfSFrg/exec';
 
   constructor(private http: HttpClient) {}
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-  }
   onNameInput() {
-  if (this.formData.name) {
-    this.formData.name = this.formData.name.replace(/[^A-Za-z ]/g, ''); // removes special chars/numbers
+    if (this.formData.name) {
+      this.formData.name = this.formData.name.replace(/[^A-Za-z ]/g, '');
+    }
   }
-}
-
 
   submit(form: NgForm) {
     if (!form.valid) {
-      return; // stop if invalid
+      return;
     }
 
     const params = new URLSearchParams({
@@ -46,15 +51,15 @@ export class MaintenanceComponent {
 
     const url = `${this.scriptUrl}?${params}`;
 
-    fetch(url, { method: "GET", mode: "no-cors" })
+    fetch(url, { method: 'GET', mode: 'no-cors' })
       .then(() => {
         this.showModal = true;
-        this.formData = {}; // reset form
+        this.formData = {};
         form.resetForm();
 
-        // auto-close after 3s
-        setTimeout(() => this.showModal = false, 3000);
-      });
+        setTimeout(() => (this.showModal = false), 3000);
+      })
+      .catch((err) => console.error('Submission failed', err));
   }
 
   closeModal() {
