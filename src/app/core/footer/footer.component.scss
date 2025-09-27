@@ -1,156 +1,139 @@
 .footer {
-  background: #232323; // dark background
+  background: #232323; /* dark background */
   padding: 3rem 10%;
   color: #ccc;
   font-family: Arial, sans-serif;
+}
 
-  .footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+.footer .footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
 
-    .footer-section {
-      h3 {
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: #ccc;
-      }
+.footer .footer-container .footer-section h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
 
-      ul {
-        list-style: none;
-        padding: 0;
-        cursor: pointer;
+.footer .footer-container .footer-section ul {
+  list-style: none;
+  padding: 0;
+  cursor: pointer;
+}
 
-        li {
-          margin-bottom: 0.5rem;
+.footer .footer-container .footer-section ul li {
+  margin-bottom: 0.5rem;
+}
 
-          a {
-            text-decoration: none;
-            color: #757575;
-            transition: color 0.3s;
+.footer .footer-container .footer-section ul li a {
+  text-decoration: none;
+  color: #757575;
+  transition: color 0.3s;
+}
 
-            &:hover {
-              color: #ccc;
-            }
+.footer .footer-container .footer-section ul li a:hover {
+  color: #ccc;
+}
 
-            i {
-              margin-right: 0.5rem;
-              color: #ccc;
-            }
-          }
-        }
-      }
-    }
+.footer .footer-container .footer-section ul li a i {
+  margin-right: 0.5rem;
+  color: #ccc;
+}
 
-  //   .logo {
-  //     font-size: 1.5rem;
-  //     font-weight: 700;
-  //     color: #ccc;
-  //     margin-bottom: 0.5rem;
-  //   }
-
-  //   .made-in-india {
-  //     display: flex;
-  //     align-items: center;
-  //     gap: 0.5rem;
-  //     color: #ff9933; // saffron tone
-
-  //     img {
-  //       width: 40px;
-  //       height: auto;
-  //     }
-
-  //     span {
-  //       font-weight: 500;
-  //     }
-  //   }
-  // }
-
-  .logo-section {
+/* Logo + text section */
+.footer .logo-section {
   display: flex;
   align-items: center; /* vertically center logo + text */
   gap: 0.8rem; /* space between logo and text */
+}
 
-  img.logo {
-    max-width: 80px;   /* smaller width since it sits left */
-    height: auto;
+.footer .logo-section img.logo {
+  max-width: 80px; /* smaller width since it sits left */
+  height: auto;
+}
+
+.footer .logo-section .text-block {
+  display: flex;
+  flex-direction: column; /* stack title + tagline */
+  align-items: flex-start;
+}
+
+.footer .logo-section .text-block h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ccc;
+}
+
+.footer .logo-section .text-block p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Footer bottom */
+#footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center; /* centers all children */
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  font-size: 0.9rem;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+#footer-bottom p {
+  margin: 0; /* reset */
+  color: #757575;
+  text-align: center;
+}
+
+#footer-bottom .footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+#footer-bottom .footer-links a {
+  text-decoration: none;
+  color: #757575;
+  transition: color 0.3s;
+}
+
+#footer-bottom .footer-links a:hover {
+  color: #ccc;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 5%;
   }
 
-  .text-block {
-    display: flex;
-    flex-direction: column; /* stack title + tagline */
-    align-items: flex-start;
-
-    h2 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #ccc;
-    }
-
-    p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
+  .footer .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
 }
 
-
-  .footer-bottom  {
-    border-top: 1px solid #444;
-    padding-top: 2rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
+@media (max-width: 480px) {
+  .footer .footer-container {
+    grid-template-columns: 1fr;
     text-align: center;
-    font-size: 0.9rem;
-    gap: 1rem;
-    margin-top: 10px;
-    margin-left: 500px;
-
-    p {
-      margin: 0;
-      color: #757575;
-    }
-
- 
-
-    .footer-links {
-      display: flex;
-      gap: 1rem;
-
-      a {
-        text-decoration: none;
-        color: #757575;
-
-        &:hover {
-          color: #ccc;
-        }
-      }
-    }
   }
 
-  // Responsive tweaks
-  @media (max-width: 768px) {
-    padding: 2rem 5%;
-
-    .footer-container {
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
+  .footer .footer-container .made-in-india {
+    justify-content: center;
   }
 
-  @media (max-width: 480px) {
-    .footer-container {
-      grid-template-columns: 1fr;
-      text-align: center;
-
-      .made-in-india {
-        justify-content: center;
-      }
-    }
+  #footer-bottom {
+    flex-direction: column; /* stack items vertically */
+    gap: 0.5rem;
   }
-}}
+}
+
