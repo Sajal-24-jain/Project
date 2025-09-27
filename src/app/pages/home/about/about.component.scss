@@ -1,123 +1,245 @@
-.about {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 5rem 10%;
-  transition: background 0.3s, color 0.3s;
+// .about {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 2rem;
+//   padding: 5rem 10%;
+//   transition: background 0.3s, color 0.3s;
 
-  .about-content {
-    flex: 1;
+//   .about-content {
+//     flex: 1;
 
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      transition: color 0.3s;
+//     h2 {
+//       font-size: 2.5rem;
+//       font-weight: 700;
+//       margin-bottom: 1.5rem;
+//       transition: color 0.3s;
+//     }
+
+//     p {
+//       font-size: 1.1rem;
+//       line-height: 1.7;
+//       margin-bottom: 1rem;
+//       transition: color 0.3s;
+//     }
+
+//     .tech-stack {
+//       margin-top: 1rem;
+
+//       span {
+//         display: inline-block;
+//         margin: 0.3rem;
+//         padding: 0.4rem 0.8rem;
+//         border-radius: 5px;
+//         font-weight: 500;
+//         font-size: 0.9rem;
+//         transition: background 0.3s, color 0.3s;
+//       }
+//     }
+//   }
+
+//   .about-image {
+//     flex: 1;
+//     display: flex;
+//     justify-content: center;
+
+//     img {
+//       width: 80%;
+//       max-width: 400px;
+//       border-radius: 1rem;
+//       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+//       transition: box-shadow 0.3s;
+//     }
+//   }
+// }
+
+// /* ---------- Light Theme ---------- */
+// body.light-theme .about {
+//   background: #f5f7fa;
+
+//   .about-content {
+//     h2 {
+//       color: #222;
+//     }
+//     p {
+//       color: #555;
+//     }
+//     .tech-stack span {
+//       background: #e0e7ff;
+//       color: #1e3a8a;
+//     }
+//   }
+
+//   .about-image img {
+//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+//   }
+// }
+
+// /* ---------- Dark Theme ---------- */
+// body.dark-theme .about {
+//   background: #121212;
+
+//   .about-content {
+//     h2 {
+//       color: #eee;
+//     }
+//     p {
+//       color: #ccc;
+//     }
+//     .tech-stack span {
+//       background: #2a2a2a;
+//       color: #fff;
+//     }
+//   }
+
+//   .about-image img {
+//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+//   }
+// }
+
+// /* Responsiveness */
+// @media (max-width: 992px) {
+//   .about {
+//     flex-direction: column-reverse;
+//     text-align: center;
+
+//     .about-image {
+//       margin-bottom: 2rem;
+//     }
+//   }
+// }
+
+// @media (max-width: 576px) {
+//   .about-content h2 {
+//     font-size: 2rem;
+//   }
+//   .about-content p {
+//     font-size: 1rem;
+//   }
+//   .about-image img {
+//     width: 100%;
+//     max-width: 300px;
+//   }
+// }
+
+
+/* Software Company Section */
+.software-company {
+  background: linear-gradient(to right, #f8f6fb, #f4f2f8);
+  padding: 3rem 1.5rem;
+  text-align: center;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    .highlight {
+      color: #ff5a2d; // orange highlight
     }
+  }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      transition: color 0.3s;
-    }
+  .description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
 
-    .tech-stack {
-      margin-top: 1rem;
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
 
-      span {
-        display: inline-block;
-        margin: 0.3rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 5px;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: background 0.3s, color 0.3s;
+    .feature {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-size: 1rem;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      .icon {
+        font-size: 1.4rem;
       }
     }
   }
+}
 
-  .about-image {
-    flex: 1;
+/* Tech Section */
+.tech-section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tech-arc {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-
-    img {
-      width: 80%;
-      max-width: 400px;
-      border-radius: 1rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s;
-    }
-  }
-}
-
-/* ---------- Light Theme ---------- */
-body.light-theme .about {
-  background: #f5f7fa;
-
-  .about-content {
-    h2 {
-      color: #222;
-    }
-    p {
-      color: #555;
-    }
-    .tech-stack span {
-      background: #e0e7ff;
-      color: #1e3a8a;
-    }
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .about-image img {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* ---------- Dark Theme ---------- */
-body.dark-theme .about {
-  background: #121212;
-
-  .about-content {
-    h2 {
-      color: #eee;
-    }
-    p {
-      color: #ccc;
-    }
-    .tech-stack span {
-      background: #2a2a2a;
-      color: #fff;
-    }
-  }
-
-  .about-image img {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  }
-}
-
-/* Responsiveness */
-@media (max-width: 992px) {
-  .about {
-    flex-direction: column-reverse;
+  .tech-item {
     text-align: center;
 
-    .about-image {
-      margin-bottom: 2rem;
-    }
-  }
-}
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 0.8rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
 
-@media (max-width: 576px) {
-  .about-content h2 {
-    font-size: 2rem;
-  }
-  .about-content p {
-    font-size: 1rem;
-  }
-  .about-image img {
-    width: 100%;
-    max-width: 300px;
+      &:hover {
+        transform: scale(1.08);
+      }
+    }
+
+    .icon {
+      font-size: 2rem;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
   }
 }
