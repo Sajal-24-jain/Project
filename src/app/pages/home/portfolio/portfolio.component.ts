@@ -11,29 +11,46 @@ import { CommonModule } from '@angular/common';
 export class PortfolioComponent {
   projects = [
     {
-      title: 'Project One',
-      description: 'Short description for project one.',
-      images: ['assets/1.jpg', 'assets/1bro.jpg', 'assets/banner.jpg']
+      title: 'College Website',
+      description: 'A dynamic college website with user authentication, registration, and profile management.',
+      tech: ['Angular', 'Node.js', 'MongoDB'],
+      image: 'assets/p1.png',
+      github: 'https://github.com/your-repo',
+      youtube: 'https://youtube.com/your-video'
     },
     {
-      title: 'Project Two',
-      description: 'Short description for project two.',
-      images: ['assets/p2-1.jpg', 'assets/p2-2.jpg']
+      title: 'AR Cultural App',
+      description: 'An AR app showcasing India’s cultural heritage through interactive experiences.',
+      tech: ['Unity', 'ARCore', 'C#'],
+      image: 'assets/p2.png',
+      github: 'https://github.com/your-repo',
+      youtube: 'https://youtube.com/your-video'
     },
     {
-      title: 'Project Three',
-      description: 'Short description for project three.',
-      images: ['assets/p3-1.jpg']
+      title: 'Book Lending System',
+      description: 'Flask-based book lending system with role-based login and fine calculation.',
+      tech: ['Python', 'Flask', 'SQLite'],
+      image: 'assets/3.png',
+      github: 'https://github.com/your-repo',
+      youtube: 'https://youtube.com/your-video'
+    },
+    {
+      title: 'Train Search App',
+      description: 'Angular-based train search system with real-time seat booking and session management.',
+      tech: ['Angular', 'Spring Boot', 'MySQL'],
+      image: 'assets/3.png',
+      github: 'https://github.com/your-repo',
+      youtube: 'https://youtube.com/your-video'
     }
   ];
 
-  currentIndex = 0;
+  visibleCount = 2; // show only 2 initially
 
-  nextProject() {
-    this.currentIndex = (this.currentIndex + 1) % this.projects.length;
+  get visibleProjects() {
+    return this.projects.slice(0, this.visibleCount);
   }
 
-  prevProject() {
-    this.currentIndex = (this.currentIndex - 1 + this.projects.length) % this.projects.length;
+  viewMore() {
+    this.visibleCount = Math.min(this.visibleCount + 2, this.projects.length);
   }
 }
