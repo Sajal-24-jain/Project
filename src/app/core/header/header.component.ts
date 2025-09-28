@@ -1,73 +1,64 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports:[NgClass,CommonModule],
+  imports: [NgClass, CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-
-// export class HeaderComponent {
-//   isHero = true; // true when over hero section
-
-//   scrollToSection(sectionId: string) {
-//   const el = document.getElementById(sectionId);
-//   if (el) {
-//     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-//     // Add active-section class to trigger overlay animation
-//     el.classList.add('active-section');
-
-//     // Remove the class after 1s so you can click again
-//     setTimeout(() => el.classList.remove('active-section'), 1000);
-//   }
-// }
-// // Inside your component.ts
-// isDarkTheme: boolean = false;
-
-// toggleTheme() {
-//   this.isDarkTheme = !this.isDarkTheme;
-
-//   if (this.isDarkTheme) {
-//     document.body.classList.add('dark-theme');
-//     document.body.classList.remove('light-theme');
-//   } else {
-//     document.body.classList.add('light-theme');
-//     document.body.classList.remove('dark-theme');
-//   }
-// }
-
-
-//   @HostListener('window:scroll', [])
-//   onWindowScroll() {
-//     const hero = document.getElementById('hero');
-//     if (hero) {
-//       const heroBottom = hero.getBoundingClientRect().bottom;
-//       this.isHero = heroBottom > 0; // true if still in hero section
-//     }
-//   }
-// }
-
 export class HeaderComponent {
   isHero = true;
+  isMaintenance = true;
   currentLogo = 'assets/logoo3.png'; // default logo
+  isDarkTheme: boolean = false;
 
-  // Scroll to section
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  /**
+   * Navigate to home page (if needed) and scroll to section
+   * @param sectionId - ID of the target section
+   */
+  goToHome(sectionId: string) {
+    if (this.router.url !== '/') {
+      // Navigate to home first
+      this.router.navigate(['/'], { fragment: sectionId }).then(() => {
+        // Wait for navigation to complete
+        const subscription = this.router.events
+          .pipe(filter(event => event instanceof NavigationEnd))
+          .subscribe(() => {
+            this.scrollToSection('hero');
+            subscription.unsubscribe(); // clean up
+          });
+      });
+    } else {
+      // Already on home page, just scroll
+      this.scrollToSection(sectionId);
+    }
+  }
+
+  
+  /**
+   * Scroll to a section by ID
+   * @param sectionId - ID of the target section
+   */
   scrollToSection(sectionId: string) {
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
       el.classList.add('active-section');
+      this.currentLogo = this.isHero ? 'assets/logoo3.png' : 'assets/1bro.png';
+
       setTimeout(() => el.classList.remove('active-section'), 1000);
     }
   }
 
-  // Theme
-  isDarkTheme: boolean = false;
-
+  /**
+   * Toggle light/dark theme
+   */
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
 
@@ -80,18 +71,22 @@ export class HeaderComponent {
     }
   }
 
-  // Scroll listener
+  /**
+   * Scroll listener to detect hero section and change logo
+   */
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const hero = document.getElementById('hero');
+    const maintenance = document.getElementById('maintenance');
     if (hero) {
       const heroBottom = hero.getBoundingClientRect().bottom;
       this.isHero = heroBottom > 0;
-
-      // change logo based on section
-      this.currentLogo = this.isHero
-        ? 'assets/logoo3.png'
-        : 'assets/1bro.png';
+      this.currentLogo = this.isHero ? 'assets/logoo3.png' : 'assets/1bro.png';
+    }
+     if (maintenance) {
+      const heroBottom = maintenance.getBoundingClientRect().bottom;
+      this.isHero = heroBottom > 0;
+      this.currentLogo = this.isMaintenance ? 'assets/logoo3.png' : 'assets/1bro.png';
     }
   }
 }

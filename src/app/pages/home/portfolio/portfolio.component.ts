@@ -35,10 +35,10 @@ export class PortfolioComponent {
       youtube: 'https://youtube.com/your-video'
     },
     {
-      title: 'Train Search App',
-      description: 'Angular-based train search system with real-time seat booking and session management.',
-      tech: ['Angular', 'Spring Boot', 'MySQL'],
-      image: 'assets/3.png',
+      title: 'Hospital Management Portal',
+      description: 'Angular-based Hospiatl management portal.',
+      tech: ['Angular', 'NodeJs', 'MySQL'],
+      image: 'assets/4.png',
       github: 'https://github.com/your-repo',
       youtube: 'https://youtube.com/your-video'
     }
