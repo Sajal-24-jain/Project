@@ -10,6 +10,7 @@
 // export class ServicesComponent {}
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -38,6 +39,9 @@ export class ServicesComponent implements OnInit, OnDestroy {
     }, 2000); // change every 2s
   }
 
+
+
+  
   ngOnDestroy(): void {
     if (this.intervalId) {
       clearInterval(this.intervalId);

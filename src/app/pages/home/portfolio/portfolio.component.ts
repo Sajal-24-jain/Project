@@ -10,24 +10,30 @@ import { CommonModule } from '@angular/common';
 })
 export class PortfolioComponent {
   projects = [
-    { 
-      title: 'E-commerce Website', 
-      description: 'A modern shopping platform with payment integration.', 
-      image: 'https://picsum.photos/400/300?random=1' 
+    {
+      title: 'Project One',
+      description: 'Short description for project one.',
+      images: ['assets/1.jpg', 'assets/1bro.jpg', 'assets/banner.jpg']
     },
-    { 
-      title: 'Business Dashboard', 
-      description: 'Analytics dashboard for tracking KPIs in real-time.', 
-      image: 'https://picsum.photos/400/300?random=2' 
+    {
+      title: 'Project Two',
+      description: 'Short description for project two.',
+      images: ['assets/p2-1.jpg', 'assets/p2-2.jpg']
     },
-    { 
-      title: 'Landing Page', 
-      description: 'Marketing site designed to maximize conversions.', 
-      image: 'https://picsum.photos/400/300?random=3' 
+    {
+      title: 'Project Three',
+      description: 'Short description for project three.',
+      images: ['assets/p3-1.jpg']
     }
   ];
 
-  viewProject(project: any) {
-    window.open(project.link, '_blank'); // Opens in new tab
+  currentIndex = 0;
+
+  nextProject() {
+    this.currentIndex = (this.currentIndex + 1) % this.projects.length;
+  }
+
+  prevProject() {
+    this.currentIndex = (this.currentIndex - 1 + this.projects.length) % this.projects.length;
   }
 }

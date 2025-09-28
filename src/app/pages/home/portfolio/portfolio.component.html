@@ -1,11 +1,13 @@
-<section id="portfolio" class="portfolio">
-  <h2>Our Work</h2>
-  <div class="projects">
-    <div class="project-card" *ngFor="let project of projects">
-      <img [src]="project.image" [alt]="project.title" />
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
-       <button class="view-btn">View Project</button>
+<div class="portfolio-container">
+  <button class="prev" (click)="prevProject()">&#10094;</button>
+
+  <div class="project-slide">
+    <h3>{{ projects[currentIndex].title }}</h3>
+    <p>{{ projects[currentIndex].description }}</p>
+    <div class="images">
+      <img *ngFor="let img of projects[currentIndex].images" [src]="img" [alt]="projects[currentIndex].title">
     </div>
   </div>
-</section>
+
+  <button class="next" (click)="nextProject()">&#10095;</button>
+</div>
