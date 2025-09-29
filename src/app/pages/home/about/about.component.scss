@@ -42,6 +42,7 @@
       font-size: 1rem;
       font-weight: 500;
       transition: transform 0.3s ease, background 0.3s, color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
       &:hover {
         transform: translateY(-4px);
@@ -96,6 +97,7 @@
       align-items: center;
       margin: 0 auto 0.8rem;
       transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
       &:hover {
         transform: scale(1.08);
