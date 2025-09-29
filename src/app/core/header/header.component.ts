@@ -16,7 +16,24 @@ export class HeaderComponent {
   currentLogo = 'assets/logoo3.png'; // default logo
   isDarkTheme: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+constructor(private router: Router) {
+  // Detect route changes
+  this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: any) => {
+      this.handleRouteChange(event.urlAfterRedirects);
+    });
+}
+private handleRouteChange(url: string) {
+  if (url === '/' || url.startsWith('/#')) {
+    // Home page → depends on scroll
+    this.onWindowScroll();
+  } else {
+    // Other routes → fixed logo / navbar
+    this.isHero = false;
+    this.currentLogo = 'assets/1bro.png';
+  }
+}
 
   /**
    * Navigate to home page (if needed) and scroll to section
@@ -74,19 +91,17 @@ export class HeaderComponent {
   /**
    * Scroll listener to detect hero section and change logo
    */
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const hero = document.getElementById('hero');
-    const maintenance = document.getElementById('maintenance');
-    if (hero) {
-      const heroBottom = hero.getBoundingClientRect().bottom;
-      this.isHero = heroBottom > 0;
-      this.currentLogo = this.isHero ? 'assets/logoo3.png' : 'assets/1bro.png';
-    }
-     if (maintenance) {
-      const heroBottom = maintenance.getBoundingClientRect().bottom;
-      this.isHero = heroBottom > 0;
-      this.currentLogo = this.isMaintenance ? 'assets/logoo3.png' : 'assets/1bro.png';
-    }
+ @HostListener('window:scroll', [])
+onWindowScroll() {
+  if (this.router.url !== '/' && !this.router.url.startsWith('/#')) {
+    return; // ignore scroll if not on home
   }
+
+  const hero = document.getElementById('hero');
+  if (hero) {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    this.isHero = heroBottom > 0;
+    this.currentLogo = this.isHero ? 'assets/logoo3.png' : 'assets/1bro.png';
+  }
+}
 }
