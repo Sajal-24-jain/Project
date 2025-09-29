@@ -1,4 +1,4 @@
-<section id="about" class="about">
+<!-- <section id="about" class="about">
   <div class="about-content">
     <h2>About Us</h2>
     <p>We are a passionate team specializing in web development, Angular, and scalable digital solutions.</p>
@@ -8,5 +8,58 @@
   </div>
   <div class="about-image">
     <img [src]="imageUrl" alt="Team illustration" />
+  </div>
+</section> -->
+
+
+<!-- Software Company Section -->
+<section class="about" id="about">
+  <div class="container">
+    <h1>
+      <span class="highlight">Software</span> Development Company
+    </h1>
+    <p class="description">
+      We build software that transforms ideas into products, challenges into platforms, 
+      and dreams into scalable realities. Our certified experts deliver customized and 
+      end-to-end solutions that you can trust.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <i class="icon">📑</i>
+        <span>15+ Software Projects Delivered</span>
+      </div>
+      <div class="feature">
+        <i class="icon">🌐</i>
+        <span>End-to-End Software Development</span>
+      </div>
+      <div class="feature">
+        <i class="icon">👨‍💻</i>
+        <span>Certified and Experienced Developers</span>
+      </div>
+      <div class="feature">
+        <i class="icon">🔒</i>
+        <span>Secure, Transparent, Accountable</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Section -->
+<section class="tech-section">
+  <h2>Powering Your Vision with the Latest Tech</h2>
+  <p>
+    At the heart of every great product is the right technology. 
+    We leverage the latest and most powerful tools to build software 
+    that’s fast, secure, and future ready.
+  </p>
+
+  <div class="tech-arc">
+    <div class="tech-item" *ngFor="let tech of techList">
+      <div class="circle">
+        <span class="icon">{{ tech.icon }}</span>
+      </div>
+      <p>{{ tech.name }}</p>
+    </div>
   </div>
 </section>

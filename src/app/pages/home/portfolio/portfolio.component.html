@@ -1,11 +1,28 @@
-<section id="portfolio" class="portfolio">
-  <h2>Our Work</h2>
-  <div class="projects">
-    <div class="project-card" *ngFor="let project of projects">
-      <img [src]="project.image" [alt]="project.title" />
-      <h3>{{ project.title }}</h3>
-      <p>{{ project.description }}</p>
-       <button class="view-btn">View Project</button>
+<section id="portfolio" class="portfolio-container">
+  <h2 class="portfolio-title">My Projects</h2>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-card" *ngFor="let project of visibleProjects">
+      <img [src]="project.image" [alt]="project.title" class="portfolio-img" />
+
+      <div class="portfolio-content">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+
+        <div class="tech-stack">
+          <span class="tech" *ngFor="let t of project.tech">{{ t }}</span>
+        </div>
+
+        <div class="portfolio-buttons">
+          <a [href]="project.github" target="_blank" class="btn github">GitHub</a>
+          <a [href]="project.youtube" target="_blank" class="btn youtube">YouTube</a>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- View More button -->
+  <div class="view-more-container" *ngIf="visibleCount < projects.length">
+    <button class="btn view-more" (click)="viewMore()">View More</button>
   </div>
 </section>

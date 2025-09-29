@@ -1,124 +1,121 @@
-.portfolio {
-  padding: 4rem 2rem;
+.portfolio-container {
+  padding: 3rem 10%;
   text-align: center;
-  transition: background 0.3s, color 0.3s;
+  background: #f8f9fa;
+  font-family: 'Montserrat', sans-serif;
 
-  h2 {
-    font-size: 2.5rem;
+  .portfolio-title {
+    font-size: 2rem;
     margin-bottom: 2rem;
-    transition: color 0.3s;
+    font-weight: 700;
+    color: #333;
   }
 
-  .projects {
+  .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
   }
 
-  .project-card {
-    background: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, background 0.3s, color 0.3s;
+  .portfolio-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease;
 
     &:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
 
-    img {
+    .portfolio-img {
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      height: 180px;
+      object-fit: cover;
     }
 
-    h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      transition: color 0.3s;
-    }
+    .portfolio-content {
+      padding: 1.5rem;
 
-    p {
-      color: #555;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
+      h3 {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+        color: #222;
+      }
 
-    .view-btn {
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 6px;
-      background: #2575fc;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 20px;
+      p {
+        font-size: 0.95rem;
+        color: #555;
+        margin-bottom: 1rem;
+      }
 
-      &:hover {
-        background: #6a11cb;
+      .tech-stack {
+        margin-bottom: 1rem;
+
+        .tech {
+          display: inline-block;
+          background: #e3e6f5;
+          color: #444;
+          font-size: 0.8rem;
+          font-weight: 500;
+          padding: 0.3rem 0.6rem;
+          border-radius: 12px;
+          margin: 0 0.3rem 0.3rem 0;
+        }
+      }
+
+      .portfolio-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        .btn {
+          text-decoration: none;
+          padding: 0.5rem 1.2rem;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transition: 0.3s ease;
+
+          &.github {
+            background: #24292e;
+            color: #fff;
+
+            &:hover {
+              background: #000;
+            }
+          }
+
+          &.youtube {
+            background: #ff0000;
+            color: #fff;
+
+            &:hover {
+              background: #cc0000;
+            }
+          }
+        }
       }
     }
   }
-}
 
-/* -------- Light Theme -------- */
-body.light-theme .portfolio {
-  background: #f9f9f9;
+  .view-more-container {
+    margin-top: 2rem;
 
-  h2 {
-    color: #111;
-  }
+    .view-more {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
 
-  .project-card {
-    background: #fff;
-
-    h3 {
-      color: #222;
-    }
-
-    p {
-      color: #555;
-    }
-  }
-
-  .project-card .view-btn {
-    background: #2575fc;
-    color: white;
-
-    &:hover {
-      background: #6a11cb;
-    }
-  }
-}
-
-/* -------- Dark Theme -------- */
-body.dark-theme .portfolio {
-  background: #121212;
-
-  h2 {
-    color: #eee;
-  }
-
-  .project-card {
-    background: #1e1e1e;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-
-    h3 {
-      color: #eee;
-    }
-
-    p {
-      color: #ccc;
-    }
-  }
-
-  .project-card .view-btn {
-    background: #2575fc;
-    color: white;
-
-    &:hover {
-      background: #6a11cb;
+      &:hover {
+        background: #0056b3;
+      }
     }
   }
 }
