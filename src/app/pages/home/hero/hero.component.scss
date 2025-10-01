@@ -1,277 +1,202 @@
-
-
+/* ================== Hero Section ================== */
 .hero {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   background-color: #050505;
- cursor: none; /* hide default cursor */
-  position: relative;
-display: flex;
-justify-content: center;
-align-items: center;
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  cursor: none;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
   color: white;
-
-$contentWidth: 500px; // adjust to fit your headline
-$maskSize: 80px;
-$speed: 1s;
-$borderOffset: 8px;
-$maskColor: #89cb66;
-
-$animationProps: $speed linear infinite alternate;
-
-@keyframes mask-move {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX($contentWidth - $maskSize); }
+  box-sizing: border-box;
 }
 
-@keyframes mask-inner-move {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-($contentWidth - $maskSize)); }
+.hero * {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
+
+/* Cursor Dot */
 .cursor-dot {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
-    z-index: 9999;
-    mix-blend-mode: difference; // nice glowing effect
-  }
-  .content-container {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    max-width: 600px;
-    padding: 2rem;
-
-    h1 {
-      // font-size: 3.5rem;
-      // font-weight: 800;
-      // margin-bottom: 1.5rem;
-      // background: linear-gradient(to right, #fff, #acacac);
-      // -webkit-background-clip: text;
-      // -webkit-text-fill-color: transparent;
-      // text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-
-position: relative;
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    width: $contentWidth;
-    background: linear-gradient(to right, #fff, #acacac);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-
-    // blurred shadow behind
-    &::before {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      filter: blur(3px);
-    }
-
-    // moving mask lines
-    &::after {
-      content: '';
-      position: absolute;
-      top: -($borderOffset / 2);
-      left: 0;
-      width: $maskSize;
-      height: calc(100% + #{$borderOffset});
-      border-top: 2px solid;
-      border-bottom: 2px solid;
-      animation: mask-move $animationProps;
-
-    }
-  }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      background: linear-gradient(90deg, #ff3a82, #5233ff);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
-      }
-    }
-  }
-
-  .gradient-background {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    overflow: hidden;
-    // display: none;
-  }
-
-  /* Parent uses CSS vars for small offsets (set by JS). Child .sphere-inner runs the float animation. */
-  .gradient-sphere {
-    --offset-x: 0px;
-    --offset-y: 0px;
-    position: absolute;
-    border-radius: 50%;
-    transform: translate3d(var(--offset-x), var(--offset-y), 0);
-    will-change: transform;
-    z-index: 1;
-    
-
-    .sphere-inner {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      filter: blur(60px);
-    }
-  }
-
-  .sphere-1 { width: 40vw; height: 40vw; top: -10%; left: -10%; }
-  .sphere-1 .sphere-inner {
-    background: linear-gradient(40deg, rgba(255,0,128,0.8), rgba(255,102,0,0.4));
-    animation: float-1 15s ease-in-out infinite alternate;
-  }
-
-  .sphere-2 { width: 45vw; height: 45vw; bottom: -20%; right: -10%; }
-  .sphere-2 .sphere-inner {
-    background: linear-gradient(240deg, rgba(72,0,255,0.8), rgba(0,183,255,0.4));
-    animation: float-2 18s ease-in-out infinite alternate;
-  }
-
-  .sphere-3 { width: 30vw; height: 30vw; top: 60%; left: 20%; }
-  .sphere-3 .sphere-inner {
-    background: linear-gradient(120deg, rgba(133,89,255,0.5), rgba(98,216,249,0.3));
-    animation: float-3 20s ease-in-out infinite alternate;
-  }
-
-  // .noise-overlay {
-  //   position: absolute;
-  //   top: 0; left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   opacity: 0.05;
-  //   z-index: 5;
-  //   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  // }
-
-  // .grid-overlay {
-  //   position: absolute;
-  //   top: 0; left: 0;
-  //   width: 100%; height: 100%;
-  //   background-size: 40px 40px;
-  //   background-image:
-  //     linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-  //     linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-  //   z-index: 2;
-  // }
-
-  .glow {
-    position: absolute;
-    width: 40vw; height: 40vh;
-    background: radial-gradient(circle, rgba(72,0,255,0.15), transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    animation: pulse 8s infinite alternate;
-    filter: blur(30px);
-  }
-
-  .particles-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  /* particles: no auto keyframe; JS will transition left/top/opacity/transform */
-  .particle {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.5);
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-    will-change: left, top, transform, opacity;
-  }
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
 }
 
-/* Animations for sphere-inner + glow */
+/* Content Container */
+.content-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 90%;
+  padding: 2rem;
+}
+
+/* Headline */
+.content-container h1 {
+  position: relative;
+  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(to right, #fff, #acacac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.content-container h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  filter: blur(3px);
+}
+
+.content-container h1::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 80px;
+  height: calc(100% + 8px);
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  animation: mask-move 1s linear infinite alternate;
+}
+
+/* Paragraph */
+.content-container p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* Button */
+.content-container .btn {
+  background: linear-gradient(90deg, #ff3a82, #5233ff);
+  color: white;
+  font-weight: 600;
+  font-size: clamp(0.6rem, 2vw, 1rem);
+  padding: clamp(0.4rem, 1vw, 0.8rem) clamp(0.9rem, 3vw, 2rem);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
+}
+
+.content-container .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+}
+
+/* Gradient Background & Spheres */
+.gradient-background {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.gradient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  z-index: 1;
+}
+
+.sphere-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  filter: blur(60px);
+}
+
+/* Spheres */
+.sphere-1 { width: 40vw; height: 40vw; top: -10%; left: -10%; }
+.sphere-1 .sphere-inner {
+  background: linear-gradient(40deg, rgba(255,0,128,0.8), rgba(255,102,0,0.4));
+  animation: float-1 15s ease-in-out infinite alternate;
+}
+
+.sphere-2 { width: 45vw; height: 45vw; bottom: -20%; right: -10%; }
+.sphere-2 .sphere-inner {
+  background: linear-gradient(240deg, rgba(72,0,255,0.8), rgba(0,183,255,0.4));
+  animation: float-2 18s ease-in-out infinite alternate;
+}
+
+.sphere-3 { width: 30vw; height: 30vw; top: 60%; left: 20%; }
+.sphere-3 .sphere-inner {
+  background: linear-gradient(120deg, rgba(133,89,255,0.5), rgba(98,216,249,0.3));
+  animation: float-3 20s ease-in-out infinite alternate;
+}
+
+/* Glow */
+.glow {
+  position: absolute;
+  width: 40vw; height: 40vh;
+  background: radial-gradient(circle, rgba(72,0,255,0.15), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: pulse 8s infinite alternate;
+  filter: blur(30px);
+}
+
+/* Particles */
+.particles-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  will-change: left, top, transform, opacity;
+}
+
+/* Animations */
+@keyframes mask-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(420px); }
+}
+
 @keyframes float-1 { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(10%) scale(1.06); } }
 @keyframes float-2 { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-8%) scale(1.12); } }
 @keyframes float-3 { 0% { transform: translateY(0) scale(1); opacity: 0.6; } 100% { transform: translateY(6%) scale(1.05); opacity: 1; } }
+@keyframes pulse { 0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); } 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); } }
 
-@keyframes pulse {
-  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
-  100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-/* responsive */
-@media (max-width: 768px) {
-  .hero .content-container h1 { font-size: 2rem;
-  margin-right: 50px; }
-  .hero .content-container p { font-size: 1rem;  margin-right: 50px;}
-  .hero .content-container button{  margin-right: 50px;}
-
-  .hero {
-  position: relative;
-  width: 115%;
-  height: 100vh;
-  overflow-x: hidden;
-  background-color: #050505;
- cursor: none; 
-  position: relative;
-
-  }
-}
-@media (width: 375px) {
-  .hero .content-container h1 { font-size: 0.5rem; }
-  .hero .content-container p { font-size: 1rem; }
-  .hero {
-    display: none;
-  position: relative;
-  width: 115%;
-  height: 100vh;
-  overflow-x: hidden;
-  background-color: #050505;
- cursor: none; 
-  position: relative;
-
-  }
-}
-
+/* Responsive Breakpoints */
+@media (max-width: 1200px) { .content-container { max-width: 80%; } }
+@media (max-width: 900px)  { .content-container { max-width: 85%; } }
+@media (max-width: 768px)  { .content-container { max-width: 90%; } }
+@media (max-width: 500px)  { .content-container { max-width: 95%; } }
+@media (max-width: 350px)  { .content-container { max-width: 100%; } }
