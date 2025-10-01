@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 *{
+  //  overflow-x: hidden;
     margin: 0;
     padding: 0;
+}
+
+
+body{
+    overflow-x: hidden;
+
 }
 
 /* Default light theme */
@@ -12,7 +19,7 @@ body.light-theme {
 
 /* Dark theme */
 body.dark-theme {
-  background-color: #121212;
+background-image: linear-gradient(to right, #303438, #243035);
   color: #fff;
 }
 
