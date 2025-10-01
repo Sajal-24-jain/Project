@@ -4,13 +4,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-maintenance',
+  selector: 'app-contact',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './maintenance.component.html',
-  styleUrls: ['./maintenance.component.scss']
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
 })
-export class MaintenanceComponent {
+export class contactComponent {
   formData: any = {
     name: '',
     email: '',
