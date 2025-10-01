@@ -10,12 +10,12 @@
 // export class ServicesComponent {}
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
@@ -47,4 +47,5 @@ export class ServicesComponent implements OnInit, OnDestroy {
       clearInterval(this.intervalId);
     }
   }
+  
 }

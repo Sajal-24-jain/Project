@@ -1,133 +1,8 @@
-// .about {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   gap: 2rem;
-//   padding: 5rem 10%;
-//   transition: background 0.3s, color 0.3s;
-
-//   .about-content {
-//     flex: 1;
-
-//     h2 {
-//       font-size: 2.5rem;
-//       font-weight: 700;
-//       margin-bottom: 1.5rem;
-//       transition: color 0.3s;
-//     }
-
-//     p {
-//       font-size: 1.1rem;
-//       line-height: 1.7;
-//       margin-bottom: 1rem;
-//       transition: color 0.3s;
-//     }
-
-//     .tech-stack {
-//       margin-top: 1rem;
-
-//       span {
-//         display: inline-block;
-//         margin: 0.3rem;
-//         padding: 0.4rem 0.8rem;
-//         border-radius: 5px;
-//         font-weight: 500;
-//         font-size: 0.9rem;
-//         transition: background 0.3s, color 0.3s;
-//       }
-//     }
-//   }
-
-//   .about-image {
-//     flex: 1;
-//     display: flex;
-//     justify-content: center;
-
-//     img {
-//       width: 80%;
-//       max-width: 400px;
-//       border-radius: 1rem;
-//       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-//       transition: box-shadow 0.3s;
-//     }
-//   }
-// }
-
-// /* ---------- Light Theme ---------- */
-// body.light-theme .about {
-//   background: #f5f7fa;
-
-//   .about-content {
-//     h2 {
-//       color: #222;
-//     }
-//     p {
-//       color: #555;
-//     }
-//     .tech-stack span {
-//       background: #e0e7ff;
-//       color: #1e3a8a;
-//     }
-//   }
-
-//   .about-image img {
-//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-//   }
-// }
-
-// /* ---------- Dark Theme ---------- */
-// body.dark-theme .about {
-//   background: #121212;
-
-//   .about-content {
-//     h2 {
-//       color: #eee;
-//     }
-//     p {
-//       color: #ccc;
-//     }
-//     .tech-stack span {
-//       background: #2a2a2a;
-//       color: #fff;
-//     }
-//   }
-
-//   .about-image img {
-//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-//   }
-// }
-
-// /* Responsiveness */
-// @media (max-width: 992px) {
-//   .about {
-//     flex-direction: column-reverse;
-//     text-align: center;
-
-//     .about-image {
-//       margin-bottom: 2rem;
-//     }
-//   }
-// }
-
-// @media (max-width: 576px) {
-//   .about-content h2 {
-//     font-size: 2rem;
-//   }
-//   .about-content p {
-//     font-size: 1rem;
-//   }
-//   .about-image img {
-//     width: 100%;
-//     max-width: 300px;
-//   }
-// }
-
-
-/* Software Company Section */
+/* ================= BASE ================= */
 .about {
-  background: linear-gradient(to right, #f8f6fb, #f4f2f8);
   padding: 3rem 1.5rem;
   text-align: center;
+  transition: background 0.3s, color 0.3s;
 
   .container {
     max-width: 1000px;
@@ -140,13 +15,12 @@
     margin-bottom: 1rem;
 
     .highlight {
-      color: #ff5a2d; // orange highlight
+      color: #ff5a2d;
     }
   }
 
   .description {
     font-size: 1.1rem;
-    color: #555;
     margin-bottom: 2.5rem;
     line-height: 1.6;
   }
@@ -154,7 +28,6 @@
   .features {
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     justify-content: center;
     align-items: center;
@@ -166,11 +39,10 @@
       gap: 0.8rem;
       padding: 1rem;
       border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       font-size: 1rem;
       font-weight: 500;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s, color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
       &:hover {
         transform: translateY(-4px);
@@ -183,10 +55,11 @@
   }
 }
 
-/* Tech Section */
+/* ================= TECH SECTION ================= */
 .tech-section {
   text-align: center;
   padding: 4rem 1.5rem;
+  transition: background 0.3s, color 0.3s;
 
   h2 {
     font-size: 2rem;
@@ -195,7 +68,6 @@
   }
 
   p {
-    color: #666;
     font-size: 1.1rem;
     margin-bottom: 3rem;
     line-height: 1.6;
@@ -220,13 +92,12 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background: #f5f5f5;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 0 auto 0.8rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
       &:hover {
         transform: scale(1.08);
@@ -240,6 +111,76 @@
     p {
       font-weight: 500;
       font-size: 0.95rem;
+    }
+  }
+}
+
+/* ================= LIGHT MODE ================= */
+body.light-theme {
+  background: #f5f7fa;
+  color: #222;
+
+  .about {
+    background: #f8f6fb;
+
+    .description {
+      color: #555;
+    }
+
+    .feature {
+      background: #fff;
+      color: #222;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .tech-section {
+    background: #fff;
+    color: #222;
+
+    p {
+      color: #666;
+    }
+
+    .circle {
+      background: #f5f5f5;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+/* ================= DARK MODE ================= */
+body.dark-theme {
+  background: #121212;
+  color: #eee;
+
+  .about {
+    background: #1a1a1a;
+
+    .description {
+      color: #bbb;
+    }
+
+    .feature {
+      background: #242424;
+      color: #eee;
+      /* Light shadow glow for dark mode */
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .tech-section {
+    background: #181818;
+    color: #eee;
+
+    p {
+      color: #aaa;
+    }
+
+    .circle {
+      background: #2a2a2a;
+      /* Softer white shadow in dark */
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
     }
   }
 }
