@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+
+body{
+    overflow-x: hidden;
+
+}
+
 /* Default light theme */
 body.light-theme {
   background-color: #f8f8f8;
