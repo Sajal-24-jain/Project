@@ -1,58 +1,19 @@
-/* ==================== VARIABLES ==================== */
-:root {
-  /* Light mode defaults */
-  --bg-section: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.25);
-  --bg-input: rgba(248, 249, 250, 0.85);
-  --bg-modal: #ffffff;
-  --text-main: #2c3e50;
-  --text-heading: #2c3e50;
-  --text-error: #d02a38;
-  --border-color: rgba(255, 255, 255, 0.18);
-  --placeholder-color: rgba(44, 62, 80, 0.6);
-}
 
-.dark-mode {
-  /* Dark mode overrides */
-  --bg-section: #0d1117;
-  --bg-card: rgba(30, 30, 30, 0.6);
-  --bg-input: rgba(45, 45, 45, 0.9);
-  --bg-modal: #1e1e1e;
-  --text-main: #e6edf3;
-  --text-heading: #f0f6fc;
-  --text-error: #ff6b6b;
-  --border-color: rgba(255, 255, 255, 0.12);
-  --placeholder-color: rgba(230, 237, 243, 0.6);
-}
 
-/* ==================== SECTION ==================== */
 #contact {
-  padding: 80px 20px;
-  background: var(--bg-section);
-  color: var(--text-main);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* ==================== CONTAINER ==================== */
-.contact-container {
-  max-width: 1100px;
-  margin: 0 auto;
+  min-height: 100vh;
+  padding: 4rem 2rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2.8rem 2.2rem;
-  border-radius: 24px;
+  align-items: center;
+  gap: 60px;
+  padding: 50px;
+  border-radius: 20px;
   background: var(--bg-card);
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-  backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(12px);
   border: 1.5px solid var(--border-color);
-  transition: box-shadow 0.3s, background 0.3s ease, border-color 0.3s ease;
-}
-
-.contact-container:hover {
-  box-shadow: 0 16px 48px rgba(44, 62, 80, 0.22), 0 2px 12px rgba(44, 62, 80, 0.16);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* ==================== ILLUSTRATION ==================== */
@@ -63,38 +24,24 @@
   align-items: center;
 }
 .illustration img {
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
-  margin-top: 40px;
-  border-radius: 18px;
-  background: rgba(248, 249, 250, 0.7);
-  padding: 1rem;
-  border: 1px solid #e63946;
+  border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
-}
-.illustration img:hover {
-  transform: scale(1.04) rotate(-2deg);
 }
 
 /* ==================== FORM SECTION ==================== */
 .form-section {
   flex: 1;
-  min-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .form-section h2 {
-  font-size: 2.3rem;
-  margin-bottom: 2rem;
-  font-weight: 700;
+  font-size: 2rem;
   color: var(--text-heading);
-  text-shadow: 0 2px 8px rgba(230, 57, 70, 0.08);
-}
-.form-section h2 .highlight {
-  color: #e63946;
-  text-shadow: 0 2px 8px rgba(230, 57, 70, 0.18);
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 /* ==================== FORM GROUPS ==================== */
@@ -102,39 +49,44 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 1.3rem;
 }
 .form-group label {
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-main);
 }
 .form-group input,
 .form-group textarea,
 .form-group select {
-  padding: 0.95rem;
-  border-radius: 9px;
+  padding: 14px 18px;
+  border-radius: 12px;
   border: 1.5px solid var(--border-color);
   background: var(--bg-input);
   font-size: 1rem;
   color: var(--text-main);
-  font-family: inherit;
   transition: border-color 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
 }
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: #5180e5;
-  box-shadow: 0 0 0 3px rgba(81, 128, 229, 0.18);
-  outline: none;
-}
-.form-group textarea {
-  resize: none;
-  min-height: 120px;
-}
+
+/* Placeholder styling */
 .form-group input::placeholder,
 .form-group textarea::placeholder,
 .form-group select::placeholder {
   color: var(--placeholder-color);
+  transition: color 0.3s ease;
+}
+
+/* Focus styles */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: none;
+  min-height: 120px;
 }
 
 /* ==================== ERROR STATES ==================== */
@@ -142,13 +94,12 @@ input.invalid,
 textarea.invalid,
 select.invalid {
   border-color: var(--text-error);
-  background: #fff0f0;
 }
 .error {
+  color: red;
   font-size: 0.9rem;
-  color: var(--text-error);
-  margin-top: 0.3rem;
-  font-weight: 500;
+  margin-top: -4px;
+  
 }
 
 /* ==================== BUTTONS ==================== */
@@ -172,6 +123,7 @@ select.invalid {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
 }
+
 .reset {
   padding: 14px 22px;
   font-size: 1.1rem;
@@ -185,7 +137,7 @@ select.invalid {
 }
 .reset:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(221, 90, 38, 0.3);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
 }
 
 /* ==================== MODAL ==================== */
@@ -209,12 +161,9 @@ select.invalid {
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
-  .contact-container {
+  #contact .contact-container {
     flex-direction: column;
-    padding: 2rem 1rem;
-  }
-  .illustration img {
-    margin-top: 0;
+    padding: 30px;
   }
   .illustration, .form-section {
     width: 100%;
