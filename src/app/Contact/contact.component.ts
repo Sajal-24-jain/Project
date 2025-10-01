@@ -7,10 +7,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-maintenance',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './maintenance.component.html',
-  styleUrls: ['./maintenance.component.scss']
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
 })
-export class MaintenanceComponent {
+export class contactComponent {
   formData: any = {
     name: '',
     email: '',
