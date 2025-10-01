@@ -249,16 +249,14 @@
   }
 }
 
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {
   #contact .contact-container {
     flex-direction: column;
-    padding: 2rem 1rem;
-    .illustration {
-      justify-content: center;
-      img {
-        margin-top: 0;
-      }
-    }
+    padding: 30px;
+  }
+  .illustration, .form-section {
+    width: 100%;
   }
 }
 

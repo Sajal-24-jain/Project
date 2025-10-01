@@ -4,12 +4,12 @@ import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { AboutComponent } from './about/about.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
-import { MaintenanceComponent } from '../../maintenance/maintenance.component';
+import { contactComponent } from '../../Contact/contact.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ServicesComponent, PortfolioComponent, AboutComponent, ReviewsComponent, MaintenanceComponent],
+  imports: [HeroComponent, ServicesComponent, PortfolioComponent, AboutComponent, ReviewsComponent, contactComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
