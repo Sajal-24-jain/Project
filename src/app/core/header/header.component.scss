@@ -1,320 +1,377 @@
-.navbar {
-  position: fixed;
-  width: 97%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  height: 6vh;
-
-  &.transparent {
-    background-color: transparent;
-    box-shadow: none;
-    color: white;
-
-    .nav-links a,
-    .btn-quote {
-      color: white;
-    }
-  }
-
-  &.colored {
-    background-color: #f8f8f8; // off-white
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    color: #333;
-
-    .nav-links a,
-    .btn-quote {
-      color: #333;
-    }
-  }
-
-  .logo {
+  // .navbar1{
+  //   background-color: transparent;
+  //   z-index: -1;
+  // }
+  .navbar {
+    position: fixed;
+    width: 97%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    height: 6vh;
 
-    #logo {
-      width: 20vw;
-      height: 25vh;
-      // max-width: 60px; // optional: keeps it reasonable on small screens
-    }
-  }
+    &.transparent {
+      background-color: transparent;
+      box-shadow: none;
+      color: white;
 
-  // .nav-links {
-  //   list-style: none;
-  //   display: flex;
-  //   gap: 1.5rem;
-
-  //   li a {
-  //     text-decoration: none;
-  //     font-weight: 1000;
-  //     color: #333;
-  //     transition: color 0.3s;
-
-  //     &:hover {
-  //       color: #e63946;
-  //     }
-  //   }
-  // }
-
-
-.nav-links {
-  display: flex;
-  gap: 2rem; // took yash-branch spacing (more roomy)
-  list-style: none;
-
-  li {
-    list-style: none; // prevents bullets
-  }
-
-  a {
-    position: relative;
-    text-decoration: none;
-    font-weight: 600; // balanced between 500 (yash) & 1000 (main)
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease;
-
-    // underline effect (from main)
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px; // space below text
-      width: 0%;
-      height: 2px;
-      background: #e63946; // underline color
-      transition: width 0.3s ease-in-out;
+      .nav-links a,
+      .btn-quote {
+        color: white;
+      }
     }
 
-    &:hover {
-      color: #e63946;
+    &.colored {
+      background-color: #f8f8f8; // off-white
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #333;
+
+      .nav-links a,
+      .btn-quote {
+        color: #333;
+      }
     }
 
-    &:hover::after {
-      width: 100%;
+    .logo {
+      display: flex;
+      align-items: center;
+
+      #logo {
+        width: 20vw;
+        height: 25vh;
+        
+      }
     }
 
-    &.active {
-      color: #e63946;
 
+
+  .nav-links {
+    display: flex;
+    gap: 2rem; 
+    list-style: none;
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      position: relative;
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+    
       &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;  
+        width: 0%;
+        height: 2px;
+        background: #e63946;  
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover {
+        color: #e63946;
+      }
+
+      &:hover::after {
         width: 100%;
+      }
+
+      &.active {
+        color: #e63946;
+
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
-}
 
 
-  .btn-quote {
-  border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: linear-gradient(90deg, #ff3a82, #5233ff);
-  color: white;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
+    .btn-quote {
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, #ff3a82, #5233ff);
+    color: white;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+    }
+
+    &:active {
+      transform: scale(0.95); /* shrink effect */
+      background: linear-gradient(90deg, #ff1a5f, #3a00ff);  
+      box-shadow: 0 2px 10px rgba(255, 58, 130, 0.5);
+    }
   }
 
-  &:active {
-    transform: scale(0.95); /* shrink effect */
-    background: linear-gradient(90deg, #ff1a5f, #3a00ff); /* darker/red effect */
-    box-shadow: 0 2px 10px rgba(255, 58, 130, 0.5);
   }
-}
+  
+    
 
-}
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0.8rem 1.5rem;
-    height: 12vh;
 
-    .nav-links {
-      gap: 1rem;
+  
+  body.light-theme {
+    background-color: #f8f8f8;
+    color: #333;
+  }
 
-      a {
+  
+  body.dark-theme {
+    background-color: #121212;
+    color: #fff;
+  }
+
+  
+  body.dark-theme a,
+  body.dark-theme .nav-links a,
+  body.dark-theme .btn-theme {
+    color: white;
+  }
+
+  body.light-theme a,
+  body.light-theme .nav-links a,
+  body.light-theme .btn-theme {
+    color: #333;
+  }
+
+  .btn-theme {
+    background: none; /* No background */
+    border: 2px solid currentColor; /* Border uses current text color */
+    border-radius: 50%; /* Makes it circular */
+    cursor: pointer;
+    padding: 0.5rem; /* Add spacing inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit; /* Adapts to theme */
+    transition: all 0.3s ease;
+  }
+
+  .btn-theme i,
+  .btn-theme .material-icons {
+    font-size: 1rem;
+    line-height: 1;;
+  }
+
+  .btn-theme:hover {
+    transform: scale(1.1);
+    color: #e63946;
+    border-color: #e63946;
+  }
+
+  .btn-theme:active {
+    transform: scale(0.95);
+  }
+
+  .navbar .btn-theme {
+    color: #333;        // default for light navbar
+    border-color: #333; // visible border
+  }
+
+  .navbar.transparent .btn-theme {
+    color: #fff;        // on hero/transparent navbar
+    border-color: #fff;
+  }
+
+  .responsive-nav{
+    // width: 50%;
+    display: none;
+  }
+
+  @media (max-width:500px) {
+    .nav-links{
+      display: none !important;
+    }
+    .btn-theme{
+      display: none !important;
+
+    }
+  .responsive-nav {
+    position: absolute;
+    top: 0;      /* align with top of parent */
+    left: 0;    /* stick to right */
+    width: 50%;  /* takes 30% of parent */
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start; 
+    background: #424c4f; /* if you want visible dropdown */
+    z-index: 1000; /* stays on top */
+    height: 99vh;
+    align-items: center;
+    
+  }
+  .logo-resp{
+    // margin-right: 20px;
+    margin: 15px 20px 10vh 0;
+          display: flex;
+      justify-content: center;
+      align-items: center;
+      // background: red;
+      width: 60%;
+      height: 13%;
+  }
+  .logo-resp img{
+    width: 45vw;
+  }
+  .theme-btn-div{
+    margin-top: 10vh;
+
+
+  }
+  .btn-theme-resp {
+    background: none; /* No background */
+    border: 2px solid currentColor; /* Border uses current text color */
+    border-radius: 50%; /* Makes it circular */
+    cursor: pointer;
+    padding: 0.5rem; /* Add spacing inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit; /* Adapts to theme */
+    transition: all 0.3s ease;
+  }
+
+  .links-respo{
+    display: flex;
+    // justify-content: space-around;
+    // align-items: center;
+  width: 60%;
+    flex-direction: column;
+    height: 50vh;
+    // background-color: red;
+    // margin-top: 10vh;
+
+  .nav-links-r-n li{
+    text-align: center;
+    background-color: #fff;
+  color: black;
+  margin-bottom: 20px;
+  }
+
+  }
+  .responsive-nav ul li{
+    list-style: none;
+  }
+  .btn-theme-resp{
+    display: block;
+  }
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0.8rem 1.5rem;
+      height: 12vh;
+
+      .nav-links {
+        gap: 1rem;
+
+        a {
+          font-size: 0.9rem;
+        }
+      }
+
+
+
+      .btn-quote {
+        padding: 0.5rem 1rem;
         font-size: 0.9rem;
       }
     }
+  }
 
+  section {
+    position: relative;
+    transition: background-color 0.3s ease;
 
+    &.active-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 0, 0, 0.3);  
+      pointer-events: none;   
+      animation: fadeOut 1s forwards;
+      z-index: 10;
+    }
 
-    .btn-quote {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
+  }
+  .hamburger {
+    margin-right: 30px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100; /* on top of nav */
+    color: white;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: currentColor;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
     }
   }
-}
+  .btn-theme-container{
 
-section {
-  position: relative;
-  transition: background-color 0.3s ease;
-
-  &.active-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: rgba(255, 0, 0, 0.3); // semi-transparent red overlay
-    pointer-events: none; // so it doesn’t block clicks
-    animation: fadeOut 1s forwards;
-    z-index: 10;
-  }
-
-  
-}
-
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-
-/* Default light theme */
-body.light-theme {
-  background-color: #f8f8f8;
-  color: #333;
-}
-
-/* Dark theme */
-body.dark-theme {
-  background-color: #121212;
-  color: #fff;
-}
-
-/* Optional: adjust links/buttons */
-body.dark-theme a,
-body.dark-theme .nav-links a,
-body.dark-theme .btn-theme {
-  color: white;
-}
-
-body.light-theme a,
-body.light-theme .nav-links a,
-body.light-theme .btn-theme {
-  color: #333;
-}
-
-// .btn-theme {
-//   padding: 0.6rem 1.5rem;
-//   border-radius: 50px;
-//   font-weight: 500;
-//   font-size: 1rem;
-//   border: none;
-//   cursor: pointer;
-//   transition: all 0.3s ease;
-//   position: relative;
-//   overflow: hidden;
-
-//   /* Default gradient for light/dark toggle */
-//   background: linear-gradient(90deg, #5233ff, #ff3a82);
-//   color: #fff;
-//   box-shadow: 0 4px 15px rgba(82, 51, 255, 0.3);
-
-//   &:hover {
-//     transform: translateY(-2px);
-//     box-shadow: 0 6px 25px rgba(82, 51, 255, 0.5);
-//   }
-
-//   &:active {
-//     transform: scale(0.95);
-//     box-shadow: 0 3px 12px rgba(82, 51, 255, 0.5);
-//   }
-// }
-
-// /* Light Theme Adjustments */
-// body.light-theme .btn-theme {
-//   background: linear-gradient(90deg, #ff3a82, #5233ff);
-//   color: #fff;
-//   box-shadow: 0 4px 15px rgba(255, 58, 130, 0.3);
-
-//   &:hover {
-//     box-shadow: 0 6px 25px rgba(255, 58, 130, 0.5);
-//   }
-// }
-
-// /* Dark Theme Adjustments */
-// body.dark-theme .btn-theme {
-//   background: linear-gradient(90deg, #2575fc, #6a11cb);
-//   color: #fff;
-//   box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
-
-//   &:hover {
-//     box-shadow: 0 6px 25px rgba(37, 117, 252, 0.5);
-//   }
-// }
-
-// .btn-theme {
-//   background: none; /* Remove any background */
-//   border: none;     /* Remove border */
-//   cursor: pointer;
-//   padding: 0;       /* Optional: remove extra padding */
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   color: inherit;   /* Inherit color from light/dark theme */
-// }
-
-.btn-theme {
-  background: none; /* No background */
-  border: 2px solid currentColor; /* Border uses current text color */
-  border-radius: 50%; /* Makes it circular */
-  cursor: pointer;
-  padding: 0.5rem; /* Add spacing inside the circle */
-  display: flex;
+    display: none;
+  width: 40%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  color: inherit; /* Adapts to theme */
-  transition: all 0.3s ease;
-}
+  // gap: 15px;
+  // background-color: red;
+  }
+  /* Show only on mobile */
+  @media (max-width: 500px) {
+    .btn-theme-container{
 
-.btn-theme i,
-.btn-theme .material-icons {
-  font-size: 1rem;
-  line-height: 1;;
-}
-
-.btn-theme:hover {
-  transform: scale(1.1);
-  color: #e63946;
-  border-color: #e63946;
-}
-
-.btn-theme:active {
-  transform: scale(0.95);
-}
-
-/* Theme-specific colors */
-// body.light-theme .btn-theme {
-//   color: #000;
-  
-// }
-
-// body.dark-theme .btn-theme {
-//   color: #fff;
-  
-// }
-
-//new 
-.navbar .btn-theme {
-  color: #333;        // default for light navbar
-  border-color: #333; // visible border
-}
-
-.navbar.transparent .btn-theme {
-  color: #fff;        // on hero/transparent navbar
-  border-color: #fff;
-}
-
+    display: flex;
+  width: 35%;
+  justify-content: space-between;
+  align-items: center;
+  // gap: 15px;
+  // background-color: red;
+  }
+    .hamburger { display: flex; }
+  }
