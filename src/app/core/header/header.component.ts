@@ -11,6 +11,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  isMenuOpen=false;
   isHero = true;
   isMaintenance = true;
   currentLogo = 'assets/logoo3.png'; // default logo
@@ -57,7 +58,21 @@ private handleRouteChange(url: string) {
     }
   }
 
-  
+  toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+}
+ @HostListener('document:click', ['$event'])
+  clickOutside(event: Event) {
+    if (this.isMenuOpen) {
+      this.isMenuOpen = false;
+    }
+  }
+
+  // Optional: prevent clicks inside the navbar from closing it
+  @HostListener('click', ['$event'])
+  insideNavbar(event: Event) {
+    event.stopPropagation();
+  }
   /**
    * Scroll to a section by ID
    * @param sectionId - ID of the target section

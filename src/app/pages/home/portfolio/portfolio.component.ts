@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit {
   projects = [
     {
       title: 'College Website',
@@ -36,7 +36,7 @@ export class PortfolioComponent {
     },
     {
       title: 'Hospital Management Portal',
-      description: 'Angular-based Hospiatl management portal.',
+      description: 'Angular-based Hospital management portal.',
       tech: ['Angular', 'NodeJs', 'MySQL'],
       image: 'assets/4.png',
       github: 'https://github.com/your-repo',
@@ -44,7 +44,27 @@ export class PortfolioComponent {
     }
   ];
 
-  visibleCount = 2; // show only 2 initially
+  visibleCount = 4;
+  isSmallScreen = false;
+
+  ngOnInit() {
+    this.updateVisibleCount(window.innerWidth);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.updateVisibleCount(event.target.innerWidth);
+  }
+
+  updateVisibleCount(width: number) {
+    if (width <= 500) {
+      this.visibleCount = 2;
+      this.isSmallScreen = true;
+    } else {
+      this.visibleCount = 4;
+      this.isSmallScreen = false;
+    }
+  }
 
   get visibleProjects() {
     return this.projects.slice(0, this.visibleCount);
