@@ -26,34 +26,12 @@ Talk to us — we might just be the partner you’re looking for.
 
   <!-- Right side: Service cards -->
   <div class="service-cards">
-    <div class="card">
-      <i class="fas fa-code"></i>
-      <h3>Web Development</h3>
-      <p>Build to view on any device.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-pencil-ruler"></i>
-      <h3>Web Design</h3>
-      <p>Get a visual influential design / tool.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-search"></i>
-      <h3>SEO</h3>
-      <p>The first page or do not exist (Do or Die).</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-shopping-cart"></i>
-      <h3>Ecommerce</h3>
-      <p>Make it easy for your customers.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-layer-group"></i>
-      <h3>UI/UX Design</h3>
-      <p>Let your user love your interface.</p>
+    <div class="card" *ngFor="let card of serviceCards.slice(0, visibleCount)">
+      <i class="{{card.icon}}"></i>
+      <h3>{{card.title}}</h3>
+      <p>{{card.desc}}</p>
     </div>
   </div>
+  <!-- View More button only on mobile and if not all cards are shown -->
+  <button class="btn view-more-btn" *ngIf="isMobile && visibleCount < serviceCards.length" (click)="visibleCount = visibleCount + 1">VIEW MORE</button>
 </section>
