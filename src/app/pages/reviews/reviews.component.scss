@@ -1,124 +1,144 @@
-
-
-// .reviews-container {
-//   background: linear-gradient(135deg, #0a0033, #220044, #330066);
-//   color: #fff;
-//   padding: 50px 20px;
-//   border-radius: 15px;
-//   text-align: center;
-//   position: relative;
-//   max-width: 800px;
-//   margin: auto;
-//   margin-bottom: 50px;
-// }
 .reviews-container {
-  width: auto; /* full width */
+  width: 100%;
+  max-width: 900px;
   background: linear-gradient(135deg, #0a0033, #220044, #330066);
-  //  background: url("../../../assets/banner3.jpg") no-repeat center center/cover; 
   color: #fff;
   padding: 50px 20px;
-  border-radius: 0; /* remove rounded edges if you want edge-to-edge */
   text-align: center;
   position: relative;
-
-  display: flex;              /* flexbox for centering */
-  flex-direction: column;     /* stack content vertically */
-  align-items: center;        /* horizontal center */
-  justify-content: center;    /* vertical center (if given height) */
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.review-content {
-  position: absolute;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin: 0 40px;
-}
-
-.quote {
-  font-size: 3rem;
-  color: #a020f0;
-  font-weight: bold;
-}
-
-.left {
-  position: absolute;
-  top: -30px;
-  left: -30px;
-}
-
-.right {
-  position: absolute;
-  bottom: -50px;
-  right: -30px;
-}
-
-// .client-info {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-top: 170px;
-//   gap: 15px;
-// }
-
-.client-info {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 170px;  /* reduced from 170px so line looks natural */
-  gap: 20px;
-  border-top: 3px solid rgba(255, 255, 255, 0.4); /* line */
-  padding-top: 20px; /* space above client info */
+  border-radius: 15px;
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .review-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0 20px; /* padding instead of absolute positioning */
+    position: relative;
+
+    .quote {
+      font-size: 3rem;
+      color: #a020f0;
+      font-weight: bold;
+    }
+  }
+
+  .client-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+
+    border-top: 2px solid rgba(255, 255, 255, 0.4);
+    padding-top: 15px;
+
+    .client-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+    }
+  }
+
+  .nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* reduced for responsiveness */
+
+    button {
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: #00aaff;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .reviews-container {
+    padding: 30px 15px;
 
-.client-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+    .title {
+      font-size: 1.8rem;
+    }
+
+    .review-content {
+      font-size: 1rem;
+
+      .quote {
+        font-size: 2.5rem;
+      }
+    }
+
+    .nav-buttons {
+      gap: 30px;
+    }
+  }
 }
 
-// .nav-buttons {
-//   margin-top: 20px;
-  
-// }
+@media (max-width: 500px) {
+  .reviews-container {
+    padding: 20px 10px;
 
-// .nav-buttons button {
-//   background: transparent;
-//   border: none;
-//   font-size: 2rem;
-//   color: #00aaff;
-//   cursor: pointer;
-//   margin: 0 10px;
-//   transition: 0.3s;
-// }
+    .title {
+      font-size: 1.5rem;
+    }
 
-// .nav-buttons button:hover {
-//   color: #fff;
-// }
+    .review-content {
+      font-size: 0.95rem;
 
+      .quote {
+        font-size: 2rem;
+      }
+    }
 
-.nav-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center; /* center horizontally */
-  gap: 300px; /* space between buttons */
-}
+    .client-info {
+      flex-direction: column;
+      gap: 10px;
 
-.nav-buttons button {
-  background: transparent;
-  border: none;
-  font-size: 2rem;
-  color: #00aaff;
-  cursor: pointer;
-  transition: 0.3s;
-}
+      h3 {
+        font-size: 0.95rem;
+      }
 
-.nav-buttons button:hover {
-  color: #fff;
+      p {
+        font-size: 0.8rem;
+      }
+    }
+
+    .nav-buttons {
+      gap: 20px;
+      button {
+        font-size: 1.8rem;
+      }
+    }
+  }
 }

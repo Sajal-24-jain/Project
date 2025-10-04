@@ -2,28 +2,19 @@
   padding: 3rem 10%;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center; // center everything
 
   .portfolio-title {
     font-size: 2rem;
     margin-bottom: 2rem;
     font-weight: 700;
-    background: linear-gradient(90deg, #ff3a82, #5233ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: linear-gradient(90deg, #ff3a82, #5233ff);
     transition: color 0.3s ease;
-    text-align: center;
   }
 
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    width: 100%;
-    max-width: 1200px; // keeps grid centered inside container
-    margin: 0 auto; // center horizontally
   }
 
   .portfolio-card {
@@ -114,8 +105,6 @@
 
   .view-more-container {
     margin-top: 2rem;
-    display: flex;
-    justify-content: center; // keep button centered
 
     .view-more {
       background: #007bff;
@@ -135,23 +124,82 @@
   }
 }
 
-/* ---------- Responsive Adjustments ---------- */
-@media (max-width: 768px) {
-  .portfolio-container {
-    padding: 2rem 5%;
+/* ---------- Dark Theme ---------- */
+body.dark-theme {
+ .portfolio-container {
+  .portfolio-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #333;           // default light mode
+    transition: color 0.3s ease;
   }
+
+  // ... rest of portfolio CSS
 }
 
-@media (max-width: 500px) {
+/* Dark Theme */
+body.dark-theme {
   .portfolio-container {
-    padding: 2rem 1rem;
+    .portfolio-title {
+      color: #fff;          // adjust "My Projects" title in dark mode
+    }
+
+    .portfolio-card {
+      background: #1e1e1e;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+      .portfolio-content {
+        h3 {
+          color: #fff;
+        }
+
+        p {
+          color: #ccc;
+        }
+
+        .tech-stack .tech {
+          background: #2a2a2a;
+          color: #fff;
+        }
+
+        .portfolio-buttons .btn.github {
+          background: #333;
+          color: #fff;
+
+          &:hover {
+            background: #000;
+          }
+        }
+
+        .portfolio-buttons .btn.youtube {
+          background: #cc0000;
+          color: #fff;
+
+          &:hover {
+            background: #990000;
+          }
+        }
+      }
+    }
+
+    .view-more-container .view-more {
+      background: #0056b3;
+      color: #fff;
+
+      &:hover {
+        background: #003f7f;
+      }
+    }
   }
 
-  .portfolio-title {
-    font-size: 1.6rem;
-  }
+    .view-more-container .view-more {
+      background: #0056b3;
+      color: #fff;
 
-  .portfolio-grid {
-    grid-template-columns: 1fr; // stack cards in 1 column
+      &:hover {
+        background: #003f7f;
+      }
+    }
   }
 }

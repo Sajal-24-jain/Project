@@ -12,7 +12,7 @@
 
     <div class="links-respo">
       <ul class="nav-links-r-n">
-        <li><a (click)="goToHome('home')">Home</a></li>
+        <li><a (click)="goToHome(`{{'home'|'hero'}}`)">Home</a></li>
         <li><a (click)="goToHome('services')">Services</a></li>
         <li><a (click)="goToHome('portfolio') ">Portfolio</a></li>
         <li><a (click)="goToHome('about') ">About</a></li>
@@ -29,7 +29,8 @@
     </a>
   </div>
   <ul class="nav-links">
-    <li><a (click)="goToHome('home')">Home</a></li>
+            <li><a (click)="goToHome(`{{'home'|'hero'}}`)">Home</a></li>
+
     <li><a (click)="goToHome('services')">Services</a></li>
     <li><a (click)="goToHome('portfolio') ">Portfolio</a></li>
     <li><a (click)="goToHome('about') ">About</a></li>
