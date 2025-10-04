@@ -318,6 +318,11 @@
     }
 
   }
+  .hamburger.btn-theme {
+    color: #333;        // default for light navbar
+    // border-color: #333; // visible border
+    background-color: rgb(0, 0, 0);
+  }
   .hamburger {
     margin-right: 30px;
     display: none;
