@@ -1,284 +1,189 @@
-// .reviews-container {
-//   width: 60%;
-//   height: 45vh;
-//   max-width: 900px;
-//   background: linear-gradient(135deg, #0a0033, #220044, #330066);
-//   color: #fff;
-//   padding: 50px 20px;
-//   border-radius: 15px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   margin: 0 auto 50px auto; // center horizontally and add bottom spacing
+/* ====== Section Title ====== */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a0033;
+  margin-bottom: 2rem;
+}
 
-//   .title {
-//     font-size: 2rem;
-//     font-weight: bold;
-//     margin-bottom: 30px;
-//     text-align: center;
-//   }
+/* ====== Main Container ====== */
+.reviews-container {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  background: linear-gradient(135deg, #0a0033, #220044, #330066);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  overflow: hidden;
 
-//   .review-content {
-//     font-size: 1.2rem;
-//     line-height: 1.4;
-//     margin: 0 20px;
-//     text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
 
-//     .quote {
-//       font-size: 3rem;
-//       color: #a020f0;
-//       font-weight: bold;
-//     }
+/* ====== Review Text + Quotes ====== */
+.review-content {
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto 2rem;
+  text-align: center;
+
+  .review-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #fff;
+    margin: 0 auto;
+    display: inline-block;
+    max-width: 85%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .quote {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #00bfff;
+    font-weight: bold;
+    opacity: 0.9;
+  }
+
+  .quote.left {
+    left: 0;
+  }
+
+  .quote.right {
+    right: 0;
+  }
+}
+
+/* ====== Client Info ====== */
+.client-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  .client-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+  }
+}
+
+/* ====== Navigation Buttons ====== */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100px;
+  margin-top: 2rem;
+
+  button {
+    background: none;
+    border: none;
+    color: #00bfff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 768px) {
+  .reviews-container {
+    width: 90%;
+    padding: 2rem 1.5rem;
+  }
+
+  .review-content .review-text {
+    font-size: 1rem;
+  }
+
+  .nav-buttons button {
+    font-size: 1.8rem;
+  }
+}
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 500px) {
+  .reviews-container {
+    width: 80%; /* same as desktop, so it stays centered */
+    max-width: 700px; /* keep same max width */
+    padding: 2rem; /* a little smaller padding for mobile */
+    border-radius: 20px;
+    text-align: center;
+    margin: 2rem auto; /* center with space around */
+  }
+
+  .review-content .review-text {
+    font-size: 1.05rem; /* slightly smaller but readable */
+    max-width: 90%; /* keep text in center */
+  }
+
+  .client-info {
+    flex-direction: row; /* keep image and text in one line */
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .nav-buttons {
+    max-width: 100px;
+    margin-top: 2rem;
+    justify-content: space-between;
+  }
+
+  .nav-buttons button {
+    font-size: 2rem; /* same as desktop */
+  }
+
+  .quote {
+    font-size: 2.2rem; /* slightly smaller to fit mobile */
+  }
+}
+    
+// @media (max-width: 480px) {
+//   .reviews-container {
+//     width: 95%;
+//     padding: 1.5rem;
 //   }
 
 //   .client-info {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     margin-top: 40px;
-//     flex-wrap: wrap;
-//     border-top: 2px solid rgba(255, 255, 255, 0.4);
-//     padding-top: 15px;
-//     gap: 15px;
-
-//     .client-image {
-//       width: 60px;
-//       height: 60px;
-//       border-radius: 50%;
-//       object-fit: cover;
-//     }
-
-//     h3 {
-//       margin: 0;
-//       font-size: 1rem;
-//       font-weight: 600;
-//     }
-
-//     p {
-//       margin: 0;
-//       font-size: 0.85rem;
-//     }
+//     flex-direction: column;
 //   }
 
 //   .nav-buttons {
-//     margin-top: 20px;
-//     display: flex;
-//     justify-content: center;
-//     gap: 40px;
+//     max-width: 80px;
+//   }
 
-//     button {
-//       background: transparent;
-//       border: none;
-//       font-size: 2rem;
-//       color: #00aaff;
-//       cursor: pointer;
-//       transition: color 0.3s ease;
-
-//       &:hover {
-//         color: #fff;
-//       }
-//     }
+//   .nav-buttons button {
+//     font-size: 1.5rem;
 //   }
 // }
-
-// /* Responsive Adjustments */
-// @media (max-width: 1024px) {
-//   .reviews-container {
-//     width: 80%;
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .reviews-container {
-//     width: 90%;
-//     height: auto;
-//     padding: 30px 15px;
-
-//     .title {
-//       font-size: 1.8rem;
-//     }
-
-//     .review-content {
-//       font-size: 1rem;
-
-//       .quote {
-//         font-size: 2.5rem;
-//       }
-//     }
-
-//     .nav-buttons {
-//       gap: 30px;
-//     }
-//   }
-// }
-
-// @media (max-width: 500px) {
-//   .reviews-container {
-//     width: 95%;
-//     padding: 20px 10px;
-//     height: auto;
-
-//     .title {
-//       font-size: 1.5rem;
-//     }
-
-//     .review-content {
-//       font-size: 0.95rem;
-
-//       .quote {
-//         font-size: 2rem;
-//       }
-//     }
-
-//     .client-info {
-//       flex-direction: column;
-//       gap: 10px;
-//       text-align: center;
-
-//       h3 {
-//         font-size: 0.95rem;
-//       }
-
-//       p {
-//         font-size: 0.8rem;
-//       }
-//     }
-
-//     .nav-buttons {
-//       gap: 20px;
-
-//       button {
-//         font-size: 1.8rem;
-//       }
-//     }
-//   }
-// }
-
-
-.title{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  // align-self: center;
-}
-.reviews-section {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 60px 20px;
-  // background-color: #f9f9fc;
-
-  .review-card {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-    padding: 60px 30px 30px;
-    width: 300px;
-    position: relative;
-    text-align: center;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    .client-img {
-      width: 90px;
-      height: 90px;
-      border-radius: 20px;
-      object-fit: cover;
-      position: absolute;
-      top: -45px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    h3 {
-      margin-top: 50px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #0a0033;
-    }
-
-    .review-points {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-      text-align: left;
-
-      li {
-        position: relative;
-        padding-left: 25px;
-        font-size: 0.95rem;
-        color: #333;
-        margin-bottom: 8px;
-
-        &::before {
-          content: "✔";
-          color: #e55146;
-          position: absolute;
-          left: 0;
-          font-weight: bold;
-        }
-      }
-    }
-
-    .review-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #666;
-
-      .rating span {
-        font-weight: 600;
-        color: #111;
-      }
-
-      .voice-btn {
-        background: #0a0033;
-        color: #fff;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 8px;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: background 0.3s ease;
-
-        &:hover {
-          background: #e55146;;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 900px) {
-    gap: 20px;
-
-    .review-card {
-      width: 90%;
-      max-width: 350px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .review-card {
-      padding: 50px 20px 25px;
-      h3 {
-        font-size: 1rem;
-      }
-      .review-points li {
-        font-size: 0.9rem;
-      }
-      .voice-btn {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-      }
-    }
-  }
-}
