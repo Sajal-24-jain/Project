@@ -82,7 +82,7 @@
 
 
 import { Component } from '@angular/core';
-  // import {download} from '../../../assets/download.png'
+
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
@@ -96,39 +96,39 @@ export class ReviewsComponent {
       regular follow-ups. With their efforts, we are seeing an increased traffic on our website...`,
       name: 'Akash Achwal',
       company: 'Crest Test Systems',
-      image: 'assets/download.png'
+      image: 'https://i.pravatar.cc/80?img=12'
     },
     {
       message: `IKF helped us achieve higher ranking in Google search results 
       and boosted our LinkedIn & Facebook engagement significantly.`,
       name: 'Sneha Sharma',
       company: 'Tech Innovators',
-      image: 'assets/download.png'
+      image: 'https://i.pravatar.cc/80?img=15'
     },
     {
     message: `Thanks to IKF, our brand visibility has grown tremendously 
       and we’re generating more quality leads.`,
     name: 'Priya Nair',
     company: 'Global Enterprises',
-    image: 'assets/download.png'
+    image: 'https://i.pravatar.cc/80?img=17'
   },
   {
     message: `The digital marketing strategies implemented by IKF gave 
       us an edge over competitors in a short time.`,
     name: 'Amit Kulkarni',
     company: 'Bright Future Pvt. Ltd.',
-    image: 'src/assets/download.png'
+    image: 'https://i.pravatar.cc/80?img=18'
   },
   {
     message: `Professional, reliable, and creative – IKF transformed our 
       online presence with impactful campaigns.`,
     name: 'Neha Gupta',
     company: 'Visionary Tech',
-    image: 'assets/download.png'
+    image: 'https://i.pravatar.cc/80?img=19'
   },
   ];
 
-  currentIndex = 2;
+  currentIndex = 0;
 
   nextReview() {
     this.currentIndex = (this.currentIndex + 1) % this.reviews.length;

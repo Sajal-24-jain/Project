@@ -1,66 +1,3 @@
-<!-- 
-
-<nav class="navbar" [ngClass]="{ 'transparent': isHero, 'colored': !isHero }">
-
-  @if (isMenuOpen) {
-  <div class="responsive-nav" >
-<div class="logo-resp">
-    <a (click)="scrollToSection('hero')">
-      <img id="logo" [src]="currentLogo" alt="Logo" />
-    </a>
-  </div>
-
-    <div class="links-respo">
-      <ul class="nav-links-r-n">
-        <li><a (click)="goToHome(`{{'home'|'hero'}}`)">Home</a></li>
-        <li><a (click)="goToHome('services')">Services</a></li>
-        <li><a (click)="goToHome('portfolio') ">Portfolio</a></li>
-        <li><a (click)="goToHome('about') ">About</a></li>
-        <li><a (click)="goToHome('contact') ">Contact</a></li>
-      </ul>
-    </div>
-
-  </div>
-  }
-
-  <div class="logo">
-    <a (click)="scrollToSection('hero')">
-      <img id="logo" [src]="currentLogo" alt="Logo" />
-    </a>
-  </div>
-  <ul class="nav-links">
-    <li><a (click)="goToHome('home')">Home</a></li>
-    <li><a (click)="goToHome('services')">Services</a></li>
-    <li><a (click)="goToHome('portfolio') ">Portfolio</a></li>
-    <li><a (click)="goToHome('about') ">About</a></li>
-    <li><a (click)="goToHome('contact') ">Contact</a></li>
-  </ul> 
-  <button class="btn-theme" (click)="toggleTheme()">
-      <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
-      <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
-    </button>
-
- 
-  <div class="btn-theme-container">
-   
-
-    <button class="btn-theme-resp" (click)="toggleTheme()">
-      <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
-      <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
-    </button>
-     
-  <button class="hamburger" [class.active]="isMenuOpen" (click)="isMenuOpen = !isMenuOpen">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  </div>
-
-
- 
-</nav>
- -->
-
 
  <nav class="navbar" [ngClass]="{ 'transparent': isHero, 'colored': !isHero }">
 
@@ -103,21 +40,21 @@
   </ul>
 
   <button class="btn-theme" (click)="toggleTheme()">
-      <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
-      <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
-    </button>
+  <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
+  <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
+</button>
 
   <!-- Theme + Hamburger -->
   <div class="btn-theme-container">
-    <button class="btn-theme" (click)="toggleTheme()">
+    <button class="btn-theme-r-n" (click)="toggleTheme()">
       <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
       <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
     </button>
 
-    <button class="hamburger" [class.active]="isMenuOpen" (click)="isMenuOpen = !isMenuOpen">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+   <button class="hamburger" [class.active]="isMenuOpen" (click)="isMenuOpen = !isMenuOpen">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
   </div>
 </nav>
