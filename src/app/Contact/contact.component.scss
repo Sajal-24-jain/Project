@@ -157,34 +157,98 @@
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  #contact .contact-container {
-    flex-direction: column;
-    padding: 2rem 1.5rem;
-  }
-  #contact .illustration img {
-    max-width: 80%;
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 1200px) {
   #contact {
-    padding: 2rem 1rem;
+    padding: 3rem 4rem;
+  }
+
+  #contact .contact-container {
+    gap: 2rem;
   }
 
   #contact .form-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* ==============================
+   900px (Tablets)
+================================= */
+@media (max-width: 900px) {
+  #contact {
+    padding: 3rem 2rem;
+  }
+
+  #contact .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  #contact .illustration img {
+    max-width: 85%;
+    margin-bottom: 1.5rem;
+  }
+
+  #contact .form-section {
+    width: 100%;
+  }
+}
+
+/* ==============================
+   768px (Small Tablets & Large Mobiles)
+================================= */
+@media (max-width: 768px) {
+  #contact {
+    padding: 2.5rem 1.5rem;
+  }
+
+  #contact .form-section h2 {
+    font-size: 1.6rem;
   }
 
   #contact .form-section h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   #contact form input,
   #contact form textarea,
   #contact form select {
     font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  #contact form textarea {
+    min-height: 100px;
+  }
+}
+
+/* ==============================
+   480px (Mobile Phones)
+================================= */
+@media (max-width: 480px) {
+  #contact {
+    padding: 2rem 1rem;
+  }
+
+  #contact .illustration img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #contact .form-section h2 {
+    font-size: 1.4rem;
+  }
+
+  #contact .form-section h3 {
+    font-size: 0.95rem;
+  }
+
+  #contact form input,
+  #contact form textarea,
+  #contact form select {
+    font-size: 0.9rem;
     padding: 0.7rem;
   }
 
@@ -194,11 +258,12 @@
 
   #contact .buttons {
     flex-direction: column;
+    gap: 0.8rem;
   }
 
   #contact .buttons button {
     width: 100%;
     font-size: 0.95rem;
-    padding: 0.7rem;
+    padding: 0.75rem;
   }
 }
