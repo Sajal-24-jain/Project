@@ -112,6 +112,7 @@ onWindowScroll() {
     return; // ignore scroll if not on home
   }
 
+
   const hero = document.getElementById('hero');
   if (hero) {
     const heroBottom = hero.getBoundingClientRect().bottom;
