@@ -13,7 +13,12 @@
         Let’s make something amazing <span class="highlight">Together</span>
       </h2>
       <h3>Get in touch with us</h3>
-      <form #form="ngForm" (ngSubmit)="submit(form)">
+        <form #form="ngForm" (ngSubmit)="submit(form)" role="form" aria-labelledby="contact-heading">
+          <!-- inline submit error -->
+          <div *ngIf="submitError" class="form-error" role="alert" aria-live="assertive">
+            {{ submitError }}
+          </div>
+          <div *ngIf="isSubmitting" class="submitting" aria-live="polite">Sending…</div>
         <!-- Row 1 -->
         <div class="row">
           <!-- Name -->
@@ -159,8 +164,9 @@
 
         <!-- Buttons -->
         <div class="buttons">
-          <button class="submit-btn" type="submit" [disabled]="form.invalid">
-            Send your message
+          <button class="submit-btn" type="submit" [disabled]="form.invalid || isSubmitting" [attr.aria-busy]="isSubmitting">
+            <span *ngIf="!isSubmitting">Send your message</span>
+            <span *ngIf="isSubmitting">Sending…</span>
           </button>
           <button class="reset" type="reset">Reset</button>
         </div>
