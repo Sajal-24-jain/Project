@@ -1,124 +1,189 @@
-
-
-// .reviews-container {
-//   background: linear-gradient(135deg, #0a0033, #220044, #330066);
-//   color: #fff;
-//   padding: 50px 20px;
-//   border-radius: 15px;
-//   text-align: center;
-//   position: relative;
-//   max-width: 800px;
-//   margin: auto;
-//   margin-bottom: 50px;
-// }
-.reviews-container {
-  width: auto; /* full width */
-  background: linear-gradient(135deg, #0a0033, #220044, #330066);
-  //  background: url("../../../assets/banner3.jpg") no-repeat center center/cover; 
-  color: #fff;
-  padding: 50px 20px;
-  border-radius: 0; /* remove rounded edges if you want edge-to-edge */
-  text-align: center;
-  position: relative;
-
-  display: flex;              /* flexbox for centering */
-  flex-direction: column;     /* stack content vertically */
-  align-items: center;        /* horizontal center */
-  justify-content: center;    /* vertical center (if given height) */
-}
-
+/* ====== Section Title ====== */
 .title {
+  text-align: center;
   font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
+  font-weight: 700;
+  color: #0a0033;
+  margin-bottom: 2rem;
 }
 
+/* ====== Main Container ====== */
+.reviews-container {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  background: linear-gradient(135deg, #0a0033, #220044, #330066);
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ====== Review Text + Quotes ====== */
 .review-content {
-  position: absolute;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin: 0 40px;
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto 2rem;
+  text-align: center;
+
+  .review-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #fff;
+    margin: 0 auto;
+    display: inline-block;
+    max-width: 85%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .quote {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #00bfff;
+    font-weight: bold;
+    opacity: 0.9;
+  }
+
+  .quote.left {
+    left: 0;
+  }
+
+  .quote.right {
+    right: 0;
+  }
 }
 
-.quote {
-  font-size: 3rem;
-  color: #a020f0;
-  font-weight: bold;
-}
-
-.left {
-  position: absolute;
-  top: -30px;
-  left: -30px;
-}
-
-.right {
-  position: absolute;
-  bottom: -50px;
-  right: -30px;
-}
-
-// .client-info {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin-top: 170px;
-//   gap: 15px;
-// }
-
+/* ====== Client Info ====== */
 .client-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 170px;  /* reduced from 170px so line looks natural */
-  gap: 20px;
-  border-top: 3px solid rgba(255, 255, 255, 0.4); /* line */
-  padding-top: 20px; /* space above client info */
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  .client-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 0;
+  }
 }
 
-
-.client-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
-
-// .nav-buttons {
-//   margin-top: 20px;
-  
-// }
-
-// .nav-buttons button {
-//   background: transparent;
-//   border: none;
-//   font-size: 2rem;
-//   color: #00aaff;
-//   cursor: pointer;
-//   margin: 0 10px;
-//   transition: 0.3s;
-// }
-
-// .nav-buttons button:hover {
-//   color: #fff;
-// }
-
-
+/* ====== Navigation Buttons ====== */
 .nav-buttons {
-  margin-top: 20px;
   display: flex;
-  justify-content: center; /* center horizontally */
-  gap: 300px; /* space between buttons */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100px;
+  margin-top: 2rem;
+
+  button {
+    background: none;
+    border: none;
+    color: #00bfff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+  }
 }
 
-.nav-buttons button {
-  background: transparent;
-  border: none;
-  font-size: 2rem;
-  color: #00aaff;
-  cursor: pointer;
-  transition: 0.3s;
-}
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 768px) {
+  .reviews-container {
+    width: 90%;
+    padding: 2rem 1.5rem;
+  }
 
-.nav-buttons button:hover {
-  color: #fff;
+  .review-content .review-text {
+    font-size: 1rem;
+  }
+
+  .nav-buttons button {
+    font-size: 1.8rem;
+  }
 }
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 500px) {
+  .reviews-container {
+    width: 80%; /* same as desktop, so it stays centered */
+    max-width: 700px; /* keep same max width */
+    padding: 2rem; /* a little smaller padding for mobile */
+    border-radius: 20px;
+    text-align: center;
+    margin: 2rem auto; /* center with space around */
+  }
+
+  .review-content .review-text {
+    font-size: 1.05rem; /* slightly smaller but readable */
+    max-width: 90%; /* keep text in center */
+  }
+
+  .client-info {
+    flex-direction: row; /* keep image and text in one line */
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .nav-buttons {
+    max-width: 100px;
+    margin-top: 2rem;
+    justify-content: space-between;
+  }
+
+  .nav-buttons button {
+    font-size: 2rem; /* same as desktop */
+  }
+
+  .quote {
+    font-size: 2.2rem; /* slightly smaller to fit mobile */
+  }
+}
+    
+// @media (max-width: 480px) {
+//   .reviews-container {
+//     width: 95%;
+//     padding: 1.5rem;
+//   }
+
+//   .client-info {
+//     flex-direction: column;
+//   }
+
+//   .nav-buttons {
+//     max-width: 80px;
+//   }
+
+//   .nav-buttons button {
+//     font-size: 1.5rem;
+//   }
+// }
