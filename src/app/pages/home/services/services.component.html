@@ -1,37 +1,34 @@
-<div id="services" ></div>
-
-
-<section  class="services">
+<section id="services" class="services">
 
   <!-- Left side: Intro -->
   <div class="intro">
-    <!-- <h2>
-      Re - <span class="highlight">innovate</span><br />
-      <span class="bold">Digital</span> Mediums are no more a <span class="bold">luxury.</span>
-    </h2> -->
-      <h2>
+    <h2>
       Re - <span class="highlight" [class.fade]="isFading">{{ currentWord }}</span><br />
       <span class="bold">In today’s world,</span> going digital is not a choice, <span class="bold">it’s a must.</span>
     </h2>
 
     <p class="italic">
-    <p>
-      There are countless platforms to grow your business, but the real question is: which ones truly work for you?<br />
-
-Let’s explore the right path together. <br />
-Talk to us — we might just be the partner you’re looking for.
+      There are countless platforms to grow your business, but the real question is: which ones truly work for you?
+      Let’s explore the right path together. Talk to us — we might just be the partner you’re looking for.
     </p>
+
     <button class="btn" routerLink="/maintenance">TALK TO US</button>
   </div>
 
   <!-- Right side: Service cards -->
   <div class="service-cards">
     <div class="card" *ngFor="let card of serviceCards.slice(0, visibleCount)">
-      <i class="{{card.icon}}"></i>
+      <div class="icon-wrap">
+        <i class="{{card.icon}}"></i>
+      </div>
       <h3>{{card.title}}</h3>
-      <p>{{card.desc}}</p>
+      <p class="desc">{{card.desc}}</p>
     </div>
   </div>
+
   <!-- View More button only on mobile and if not all cards are shown -->
-  <button class="btn view-more-btn" *ngIf="isMobile && visibleCount < serviceCards.length" (click)="visibleCount = visibleCount + 1">VIEW MORE</button>
+  <div class="mobile-actions">
+    <button class="btn view-more-btn" *ngIf="isMobile && visibleCount < serviceCards.length" (click)="visibleCount = visibleCount + 1">VIEW MORE</button>
+  </div>
+
 </section>

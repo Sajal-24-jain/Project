@@ -1,342 +1,208 @@
+/* Simplified, modern styles for services section */
 .services {
+  padding: 3.5rem 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 520px; /* give enough vertical space on laptop/desktop so intro can center */
+
   .intro {
-    .intro {
-      text-align: left;
+    text-align: left;
+    padding-right: 1rem;
 
-      .services {
-        padding: 4rem 10%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-        gap: 3rem;
-        transition: background 0.3s, color 0.3s;
-      }
+    /* ensure intro vertically centers alongside the card column on wider screens */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-      .services .intro {
-        text-align: left;
-      }
-      .services .intro h2 {
-        font-size: 2.2rem;
-        line-height: 1.4;
-        margin-bottom: 1.5rem;
-      }
-      .services .intro h2 .highlight {
+    h2 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 0.75rem 0;
+
+      .highlight {
         color: #e63946;
-        font-weight: 700;
+        font-weight: 800;
         display: inline-block;
-        min-width: 120px;
-      }
-      .services .intro h2 .fade {
-        opacity: 0;
-        transition: opacity 0.6s ease-in-out;
-      }
-      .services .intro h2 .bold {
-        font-weight: 700;
-      }
-      .services .intro .italic {
-        font-style: italic;
-        margin: 0.5rem 0 1rem;
-      }
-      .services .intro p {
-        margin-bottom: 1rem;
-        transition: color 0.3s;
-      }
-      .services .intro .btn {
-        background: linear-gradient(90deg, #ff3a82, #5233ff);
-        color: white;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 0.8rem 2rem;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
-        margin-top: 20px;
-      }
-      .services .intro .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+        min-width: 90px;
       }
 
-      .services .service-cards {
+      .fade { opacity: 0; transition: opacity 0.45s ease-in-out; }
+      .bold { font-weight: 700; }
+    }
+
+    .italic { font-style: italic; color: #555; margin-bottom: 0.75rem; }
+
+    p { margin: 0 0 1rem 0; color: #555; }
+
+    .btn {
+      background: linear-gradient(90deg, #ff3a82, #5233ff);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.6px;
+      box-shadow: 0 8px 26px rgba(82, 51, 255, 0.12);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(82, 51, 255, 0.16); }
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 2rem;
+    align-items: start;
+
+    .card {
+      background: transparent;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 110px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+
+      .icon-wrap {
+        width: 56px;
+        height: 56px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 5rem;
-        row-gap: 1.5rem;
-        justify-items: center;
-      }
-      .services .service-cards .card {
-        padding: 2rem;
+        place-items: center;
         border-radius: 12px;
-        text-align: center;
-        transition: 0.3s;
-        width: 100%;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 0.6rem;
+        background: linear-gradient(180deg, rgba(82,51,255,0.06), rgba(255,58,130,0.04));
       }
-      .services .service-cards .card:hover {
-        transform: translateY(-5px) scale(1.02);
-        background: #e63946;
-        color: #fff;
-      }
-      .services .service-cards .card:hover i,
-      .services .service-cards .card:hover h3,
-      .services .service-cards .card:hover p {
-        -webkit-text-fill-color: #fff;
-        color: #fff;
-      }
-      .services .service-cards .card i {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
+
+      i {
+        font-size: 1.45rem;
+        color: #7a2dd4;
         background: linear-gradient(90deg, #ff3a82, #5233ff);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-      }
-      .services .service-cards .card h3,
-      .services .service-cards .card p {
-        transition: color 0.3s;
-      }
-      .services .service-cards .card:last-child {
-        grid-column: span 2;
-        justify-self: center;
-        width: auto;
+        color: transparent;
       }
 
-      @media (max-width: 900px) {
-        .services {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-        .services .intro {
-          text-align: center;
-        }
-        .services .service-cards .card:last-child {
-          grid-column: span 1;
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 500px) {
-        .services {
-          padding: 2rem 2%;
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        .services .intro h2 {
-          font-size: 1.3rem;
-        }
-        .services .intro h2 .highlight {
-          min-width: 80px;
-        }
-        .services .intro .btn {
-          font-size: 0.9rem;
-          padding: 0.6rem 1.2rem;
-        }
-        .services .service-cards {
-          grid-template-columns: 1fr;
-          column-gap: 0;
-          row-gap: 1rem;
-        }
-        .services .service-cards .card {
-          padding: 1.2rem;
-          font-size: 0.95rem;
-          width: 100%;
-        }
-        .services .service-cards .card h3 {
-          font-size: 1.1rem;
-        }
-        .services .service-cards .card i {
-          font-size: 1.5rem;
-        }
-        .services .service-cards .card:last-child {
-          grid-column: span 1;
-          width: 100%;
-        }
-      }
-        .btn {
-          font-size: 0.9rem;
-          padding: 0.6rem 1.2rem;
-        }
-      }
-      .service-cards {
-        grid-template-columns: 1fr;
-        column-gap: 0;
-        row-gap: 1rem;
-        .card {
-          padding: 1.2rem;
-          font-size: 0.95rem;
-          width: 100%;
-          h3 {
-            font-size: 1.1rem;
-          }
-          i {
-            font-size: 1.5rem;
-          }
-        }
-        .card:last-child {
-          grid-column: span 1;
-          width: 100%;
-        }
-            grid-column: span 1;
-            width: 100%;
-          }
-        }
-      }
-    
-
-    h2 {
-      font-size: 2.2rem;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-
-      .highlight {
-        color: #e63946;
-        font-weight: 700;
-        display: inline-block;
-        min-width: 120px;
-      }
-
-      .fade {
-        opacity: 0;
-        transition: opacity 0.6s ease-in-out;
-      }
-
-      .bold {
-        font-weight: 700;
-      }
-    }
-
-    .italic {
-      font-style: italic;
-      margin: 0.5rem 0 1rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      transition: color 0.3s;
-    }
-
-    .btn {
-      background: linear-gradient(90deg, #ff3a82, #5233ff);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 20px rgba(255, 58, 130, 0.3);
-      margin-top: 20px;
+      h3 { margin: 0.25rem 0; font-size: 1.05rem; color: #222; font-weight: 700; }
+      .desc { margin: 0; color: #666; font-size: 0.95rem; }
 
       &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(255, 58, 130, 0.4);
+        transform: translateY(-6px);
+        box-shadow: 0 14px 34px rgba(16, 24, 40, 0.08);
+        background-color: rgba(230,57,70,0.04);
       }
     }
-  
 
-  /* Service Cards */
+    .card.full-row { grid-column: 1 / -1; justify-self: center; max-width: 560px; }
+
+    /* center the last card (e.g. UI/UX) under the two-column layout */
+    .card:last-child {
+      grid-column: 1 / -1;
+      justify-self: center;
+      max-width: 330px;
+      margin-top: 0.6rem;
+    }
+  }
+
+  /* mobile actions container ensures button doesn't overlap cards */
+  .mobile-actions { display: none; }
+
+  /* view-more button should match primary CTA styling (used on mobile) */
+  .view-more-btn {
+    background: linear-gradient(90deg, #ff3a82, #5233ff);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.6px;
+    box-shadow: 0 8px 26px rgba(82, 51, 255, 0.12);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  .view-more-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(82, 51, 255, 0.16); }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 6%;
+    .intro { text-align: center; padding: 0; height: auto; display: block; justify-content: initial; }
+    .service-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.6rem 4%;
+    .intro { text-align: left; }
+    .service-cards { grid-template-columns: 1fr; }
+  .mobile-actions { display: block; margin-top: 0.8rem; text-align: left; }
+  /* center the button on very small screens and make it visually consistent */
+  .mobile-actions .view-more-btn { display: inline-block; margin: 0.6rem 0; }
+    .service-cards .card { min-height: auto; padding: 1rem; }
+    .intro h2 { font-size: 1.25rem; }
+  }
+}
+
+/* Light Theme (apply from host context so component styles match body) */
+:host-context(body.light-theme) .services {
+  background: #fafafa;
+
+  .intro {
+    .italic, p { color: #4b5563; }
+  }
+
+  .service-cards .card { background: #fff; }
+}
+
+/* Dark Theme (improved contrast) - use host-context so rules apply when body has class) */
+:host-context(body.dark-theme) .services {
+  /* keep the subtle dark background but ensure content stands out */
+  background: linear-gradient(180deg, #0b0f11 0%, #172126 60%);
+
+  .intro {
+    h2 { color: #ffffff; }
+    .highlight { color: #ff6b8b; }
+    .italic, p { color: rgba(255,255,255,0.78); }
+  }
+
   .service-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 3rem;
-    row-gap: 1.5rem;
-    justify-items: center;
-
     .card {
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: 0.3s;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 22px rgba(2,6,23,0.6);
 
-      &:hover {
-        transform: translateY(-5px) scale(1.02);
-        background: #e63946;
-        color: #fff;
-
-        i, h3, p {
-          color: #fff;
-        }
-      }
+      .icon-wrap { background: rgba(255,255,255,0.03); }
 
       i {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
-        background: linear-gradient(90deg, #ff3a82, #5233ff);
-        -webkit-background-clip: text;
+        /* ensure icon gradient remains visible on dark */
         -webkit-text-fill-color: transparent;
+        color: transparent;
+        background: linear-gradient(90deg, #ff6b8b, #7961ff);
+        -webkit-background-clip: text;
+        background-clip: text;
       }
 
-      h3, p {
-        transition: color 0.3s;
-      }
-    }
-
-    .card:last-child {
-      grid-column: span 2;
-      justify-self: center;
-      width: auto;
+      h3 { color: #f8fafc; opacity: 0.95; }
+      .desc { color: rgba(255,255,255,0.68); }
     }
   }
 
-  /* Responsive Breakpoints */
-  @media (max-width: 900px) {
-    .services {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .service-cards {
-      grid-template-columns: 1fr;
-      column-gap: 0;
-      .card:last-child {
-        grid-column: span 1;
-        width: 100%;
-      }
-    }
-  }
-
-/* Light Theme */
-body.light-theme .services {
-  background: #f9f9f9;
-
-  .intro p { color: #555; }
-
-  .service-cards .card {
-    background: #fff;
-    color: #222;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-    h3 { color: #222; }
-    p { color: #666; }
+  /* make CTA stand out in dark mode */
+  .intro .btn {
+    box-shadow: 0 10px 30px rgba(82,51,255,0.22);
+    background: linear-gradient(90deg, #ff5a95, #6b54ff);
+    color: #fff;
   }
 }
 
-/* Dark Theme */
-body.dark-theme .services {
-  background: #121212;
-
-  .intro p { color: #ddd; }
-
-  .service-cards .card {
-    background: #1e1e1e;
-    color: #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-
-    h3 { color: #eee; }
-    p { color: #ccc; }
-  }
-}
