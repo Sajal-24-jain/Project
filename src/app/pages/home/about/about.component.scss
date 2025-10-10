@@ -195,14 +195,44 @@ body.dark-theme {
 }
 
 :host-context(body.dark-theme) .tech-section {
-  background: transparent;
+  /* subtle gradient to sync with upper about section */
+  background: linear-gradient(180deg, #0b0f11 0%, #172126 100%);
   color: #e8eef6;
+  border-top: 1px solid rgba(255,255,255,0.05); /* subtle divider line for polished partition */
 
-  p { color: rgba(255,255,255,0.72); }
+  h2 {
+    color: #fff;
+    font-weight: 700;
+  }
 
-  .circle {
-    background: rgba(255,255,255,0.02);
-    box-shadow: 0 6px 16px rgba(2,6,23,0.6);
+  p { 
+    color: rgba(255,255,255,0.82); 
+  }
+
+  .tech-arc {
+    .tech-item {
+      p { 
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .circle {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 8px 20px rgba(2,6,23,0.5);
+        
+        &:hover { 
+          transform: translateY(-6px) scale(1.03); 
+          box-shadow: 0 12px 30px rgba(2,6,23,0.7);
+          background: rgba(255,255,255,0.08);
+        }
+      }
+
+      .icon { 
+        color: #fff; 
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+    }
   }
 }
 
