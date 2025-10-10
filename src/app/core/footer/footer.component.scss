@@ -1,12 +1,13 @@
 .footer {
-  background: #232323; /* dark background */
+  background: #f8f6fb; /* light default background */
   padding: 3rem 10%;
-  color: #ccc;
+  color: #222;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center; // centers whole footer content
   text-align: center;  // ensures text aligns center by default
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .footer .footer-container {
@@ -18,15 +19,32 @@
   max-width: 1200px; // keeps content centered and not stretched
 }
 
+.footer .footer-container .footer-section {
+  text-align: left;
+}
+
 .footer .footer-container .footer-section h3 {
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #ccc;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1.4;
+}
+
+.footer .footer-container .footer-section h3 i {
+  margin-right: 0.5rem;
+  color: #222;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .footer .footer-container .footer-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -36,17 +54,17 @@
 
 .footer .footer-container .footer-section ul li a {
   text-decoration: none;
-  color: #757575;
+  color: #555;
   transition: color 0.3s;
 }
 
 .footer .footer-container .footer-section ul li a:hover {
-  color: #ccc;
+  color: #222;
 }
 
 .footer .footer-container .footer-section ul li a i {
   margin-right: 0.5rem;
-  color: #ccc;
+  color: #222;
 }
 
 /* Logo + text section */
@@ -55,7 +73,7 @@
   align-items: center; /* vertically center logo + text */
   justify-content: center; /* center horizontally */
   gap: 0.8rem; /* space between logo and text */
-  text-align: left; /* text stays aligned properly with logo */
+  text-align: center; /* consistent alignment with other sections */
 }
 
 .footer .logo-section img.logo {
@@ -66,25 +84,25 @@
 .footer .logo-section .text-block {
   display: flex;
   flex-direction: column; /* stack title + tagline */
-  align-items: flex-start;
+  align-items: center;
 }
 
 .footer .logo-section .text-block h2 {
   margin: 0;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ccc;
+  color: #222;
 }
 
 .footer .logo-section .text-block p {
   margin: 0;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #666;
 }
 
 /* Footer bottom */
 #footer-bottom {
-  border-top: 1px solid #444;
+  border-top: 1px solid #e5e7eb;
   padding-top: 2rem;
   display: flex;
   justify-content: center; /* centers all children */
@@ -99,7 +117,7 @@
 
 #footer-bottom p {
   margin: 0;
-  color: #757575;
+  color: #666;
   text-align: center;
 }
 
@@ -111,12 +129,41 @@
 
 #footer-bottom .footer-links a {
   text-decoration: none;
-  color: #757575;
+  color: #555;
   transition: color 0.3s;
 }
 
 #footer-bottom .footer-links a:hover {
-  color: #ccc;
+  color: #222;
+}
+
+/* Back to top button */
+.back-to-top {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.back-to-top:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
 }
 
 /* Responsive tweaks */
@@ -158,4 +205,105 @@
     text-align: center;
     align-items: center;
   }
+}
+
+/* Light Theme (apply from host context so component styles match body) */
+:host-context(body.light-theme) .footer {
+  background: #f8f6fb;
+  color: #222;
+
+  .footer-container .footer-section h3 {
+    color: #222;
+  }
+
+  .footer-container .footer-section ul li a {
+    color: #555;
+  }
+
+  .footer-container .footer-section ul li a:hover {
+    color: #222;
+  }
+
+  .footer-container .footer-section ul li a i {
+    color: #222;
+  }
+
+  .logo-section .text-block h2 {
+    color: #222;
+  }
+
+  .logo-section .text-block p {
+    color: #666;
+  }
+
+  #footer-bottom {
+    border-top-color: #e5e7eb;
+  }
+
+  #footer-bottom p {
+    color: #666;
+  }
+
+  #footer-bottom .footer-links a {
+    color: #555;
+  }
+
+  #footer-bottom .footer-links a:hover {
+    color: #222;
+  }
+}
+
+/* Dark Theme (improved contrast) - use host-context so rules apply when body has class) */
+:host-context(body.dark-theme) .footer {
+  /* keep the subtle dark background but ensure content stands out */
+  background: linear-gradient(180deg, #0b0f11 0%, #172126 60%);
+  color: #eaeff2;
+
+  .footer-container {
+    .footer-section h3 {
+      color: #ffffff;
+    }
+
+    .footer-section h3 i {
+      color: #ffffff;
+    }
+
+    .footer-section ul li a {
+      color: rgba(255,255,255,0.68);
+    }
+
+    .footer-section ul li a:hover {
+      color: #ffffff;
+    }
+
+    .footer-section ul li a i {
+      color: #ffffff;
+    }
+  }
+
+  .logo-section .text-block h2 {
+    color: #ffffff;
+  }
+
+  .logo-section .text-block p {
+    color: rgba(255,255,255,0.78);
+  }
+
+  #footer-bottom {
+    border-top-color: rgba(255,255,255,0.03);
+  }
+
+  #footer-bottom p {
+    color: rgba(255,255,255,0.68);
+  }
+
+  #footer-bottom .footer-links a {
+    color: rgba(255,255,255,0.68);
+  }
+
+  #footer-bottom .footer-links a:hover {
+    color: #ffffff;
+  }
+
+
 }

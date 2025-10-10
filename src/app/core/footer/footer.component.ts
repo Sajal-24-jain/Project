@@ -33,4 +33,9 @@ export class FooterComponent {
       setTimeout(() => el.classList.remove('active-section'), 1000);
     }
   }
+
+  // Scroll to top
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
  }
