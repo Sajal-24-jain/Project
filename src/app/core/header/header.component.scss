@@ -61,7 +61,9 @@
       font-weight: 600;
       color: #333;
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+      border-radius: 4px;
 
       &::after {
         content: "";
@@ -69,13 +71,15 @@
         left: 0;
         bottom: -5px;
         width: 0%;
-        height: 2px;
-        background: #e63946;
+        height: 3px;
+        background: linear-gradient(90deg, #e63946, #ff6b6b);
         transition: width 0.3s ease-in-out;
+        border-radius: 2px;
       }
 
       &:hover {
         color: #e63946;
+        background: rgba(230, 57, 70, 0.1);
       }
 
       &:hover::after {
@@ -84,10 +88,16 @@
 
       &.active {
         color: #e63946;
+        background: rgba(230, 57, 70, 0.1);
 
         &::after {
           width: 100%;
         }
+      }
+
+      &:focus {
+        outline: 2px solid #e63946;
+        outline-offset: 2px;
       }
     }
   }
@@ -250,13 +260,58 @@
         color: #fff;
         font-size: 1.2rem;
         text-decoration: none;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
+        padding: 0.5rem;
+        border-radius: 4px;
 
         &:hover {
           color: #2979ff;
+          background: rgba(41, 121, 255, 0.1);
+        }
+
+        &.active {
+          color: #2979ff;
+          background: rgba(41, 121, 255, 0.1);
+        }
+
+        &:focus {
+          outline: 2px solid #2979ff;
+          outline-offset: 2px;
         }
       }
     }
+  }
+}
+
+/* Mobile Get Quote Button */
+.btn-quote-mobile {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #ff3a82, #5233ff);
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 58, 130, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background: linear-gradient(90deg, #ff1a5f, #3a00ff);
+    box-shadow: 0 2px 10px rgba(255, 58, 130, 0.5);
+  }
+
+  &:focus {
+    outline: 2px solid #ff3a82;
+    outline-offset: 2px;
   }
 }
 
