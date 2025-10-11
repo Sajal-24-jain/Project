@@ -242,7 +242,7 @@
   right: -100%;
   width: 70%;
   height: 100vh;
-  background: #111;
+  background: linear-gradient(135deg, #050505 0%, #111 50%, #1a0d2e 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -251,6 +251,8 @@
   transition: right 0.3s ease-in-out;
   z-index: 1200;
   padding: 2rem 1rem;
+  box-shadow: -5px 0 20px rgba(82, 51, 255, 0.3);
+  backdrop-filter: blur(10px);
 
   &.show {
     right: 0;
@@ -258,6 +260,9 @@
 
   .logo-resp {
     margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
 
     img {
       width: 45vw;
@@ -274,7 +279,17 @@
       margin: 1.5rem 0;
       text-align: center;
       width: 100%;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translateX(20px);
+      animation: slideInRight 0.4s ease-out forwards;
+
+      &:nth-child(1) { animation-delay: 0.4s; }
+      &:nth-child(2) { animation-delay: 0.5s; }
+      &:nth-child(3) { animation-delay: 0.6s; }
+      &:nth-child(4) { animation-delay: 0.7s; }
+      &:nth-child(5) { animation-delay: 0.8s; }
+      &:nth-child(6) { animation-delay: 0.9s; }
 
       a {
         color: #fff;
@@ -285,21 +300,37 @@
         border-radius: 4px;
 
         &:hover {
-          color: #2979ff;
-          background: rgba(41, 121, 255, 0.1);
+          color: #5233ff;
+          background: rgba(82, 51, 255, 0.2);
+          box-shadow: 0 4px 15px rgba(82, 51, 255, 0.3);
         }
 
         &.active {
-          color: #2979ff;
-          background: rgba(41, 121, 255, 0.1);
+          color: #5233ff;
+          background: rgba(82, 51, 255, 0.2);
+          box-shadow: 0 4px 15px rgba(82, 51, 255, 0.3);
         }
 
         &:focus {
-          outline: 2px solid #2979ff;
+          outline: 2px solid #5233ff;
           outline-offset: 2px;
         }
       }
     }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -365,26 +396,36 @@
   cursor: pointer;
   z-index: 1300;
   color: white;
+  border-radius: 4px;
+  padding: 4px;
+  transition: all 0.3s ease;
 
   span {
     display: block;
     width: 100%;
-    height: 3px;
+    height: 4px;
     background: currentColor;
-    border-radius: 5px;
+    border-radius: 2px;
     transition: all 0.3s ease;
   }
 
   &.active {
+    color: currentColor !important;
+
     span:nth-child(1) {
-      transform: translateY(9px) rotate(45deg);
+      transform: translateY(10px) rotate(45deg);
     }
     span:nth-child(2) {
       opacity: 0;
     }
     span:nth-child(3) {
-      transform: translateY(-9px) rotate(-45deg);
+      transform: translateY(-10px) rotate(-45deg);
     }
+  }
+
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
