@@ -53,36 +53,47 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     const hero = this.el.nativeElement.querySelector('.hero') as HTMLElement;
     const container = this.particlesContainerRef.nativeElement;
 
-    // Mouse move within hero
+    // Mouse move globally for cursor following
     const moveHandler = (e: MouseEvent) => {
-      if (cursor) {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
+      if (cursor && cursor.style.display !== 'none') {
+        cursor.style.left = `${e.clientX - 15}px`;
+        cursor.style.top = `${e.clientY - 15}px`;
       }
-      this.createCursorParticle(container, e.clientX, e.clientY);
+      // Only create particles and update spheres when over hero
+      if (hero.contains(e.target as Node)) {
+        this.createCursorParticle(container, e.clientX, e.clientY);
 
-      const spheres = document.querySelectorAll('.gradient-sphere');
-      const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
-      const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
-      spheres.forEach(s => {
-        (s as HTMLElement).style.setProperty('--offset-x', `${moveX}px`);
-        (s as HTMLElement).style.setProperty('--offset-y', `${moveY}px`);
-      });
+        const spheres = document.querySelectorAll('.gradient-sphere');
+        const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
+        const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
+        spheres.forEach(s => {
+          (s as HTMLElement).style.setProperty('--offset-x', `${moveX}px`);
+          (s as HTMLElement).style.setProperty('--offset-y', `${moveY}px`);
+        });
+      }
     };
 
-    hero.addEventListener('mousemove', moveHandler);
-    hero.addEventListener('mouseenter', () => { cursor.style.display = 'block'; });
-    hero.addEventListener('mouseleave', () => { cursor.style.display = 'none'; });
+    document.addEventListener('mousemove', moveHandler);
+    hero.addEventListener('mouseenter', () => { 
+      if (cursor) cursor.style.display = 'block'; 
+    });
+    hero.addEventListener('mouseleave', () => { 
+      if (cursor) cursor.style.display = 'none'; 
+    });
 
     const btns = this.el.nativeElement.querySelectorAll('button, a') as NodeListOf<HTMLElement>;
     btns.forEach(btn => {
       btn.addEventListener('mouseenter', () => {
-        cursor.style.width = '50px';
-        cursor.style.height = '50px';
+        if (cursor) {
+          cursor.style.width = '50px';
+          cursor.style.height = '50px';
+        }
       });
       btn.addEventListener('mouseleave', () => {
-        cursor.style.width = '30px';
-        cursor.style.height = '30px';
+        if (cursor) {
+          cursor.style.width = '30px';
+          cursor.style.height = '30px';
+        }
       });
     });
   }

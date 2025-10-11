@@ -1,10 +1,9 @@
 
 
 
-<section  id="hero" class="hero">
-
-<div class="cursor-dot"></div>
-<div class="particles-container"></div> 
+<section id="hero" class="hero" role="banner" aria-label="ProjectOverflow Hero Section">
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="particles-container"></div> 
   <div class="gradient-background">
     <div class="gradient-sphere sphere-1"><div class="sphere-inner"></div></div>
     <div class="gradient-sphere sphere-2"><div class="sphere-inner"></div></div>
@@ -18,8 +17,13 @@
   </div>
 
   <div class="content-container">
-    <h1>{{ headline }}</h1>
-    <p>{{ subHeadline }}</p>
-    <button routerLink="/maintenance" class="btn">Talk to Us</button>
+    <h1 class="fade-in" [attr.data-text]="headline">{{ headline }}</h1>
+    <p class="fade-in delay-1">{{ subHeadline }}</p>
+    <button routerLink="/maintenance" class="btn fade-in delay-2 ripple" aria-label="Talk to us about your project">Talk to Us</button>
+  </div>
+
+  <div class="scroll-prompt" aria-hidden="true">
+    <div class="arrow"></div>
+    <p>Scroll to explore</p>
   </div>
 </section>
