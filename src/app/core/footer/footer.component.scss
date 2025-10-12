@@ -1,12 +1,13 @@
 .footer {
-  background: #232323; /* dark background */
+  background: #f8f6fb;
   padding: 3rem 10%;
-  color: #ccc;
+  color: #222;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center; // centers whole footer content
-  text-align: center;  // ensures text aligns center by default
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .footer .footer-container {
@@ -15,57 +16,72 @@
   gap: 2rem;
   margin-bottom: 2rem;
   width: 100%;
-  max-width: 1200px; // keeps content centered and not stretched
+  max-width: 1200px;
 }
 
-.footer .footer-container .footer-section h3 {
+.footer .footer-section {
+  text-align: left;
+}
+
+.footer .footer-section h3 {
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #ccc;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1.4;
 }
 
-.footer .footer-container .footer-section ul {
+.footer .footer-section h3 i {
+  margin-right: 0.5rem;
+  color: #222;
+  font-size: 1rem;
+}
+
+.footer .footer-section ul {
   list-style: none;
   padding: 0;
-  cursor: pointer;
+  margin: 0;
 }
 
-.footer .footer-container .footer-section ul li {
+.footer .footer-section ul li {
   margin-bottom: 0.5rem;
 }
 
-.footer .footer-container .footer-section ul li a {
+.footer .footer-section ul li a {
   text-decoration: none;
-  color: #757575;
+  color: #555;
   transition: color 0.3s;
 }
 
-.footer .footer-container .footer-section ul li a:hover {
-  color: #ccc;
+.footer .footer-section ul li a:hover {
+  color: #222;
 }
 
-.footer .footer-container .footer-section ul li a i {
+.footer .footer-section ul li a i {
   margin-right: 0.5rem;
-  color: #ccc;
+  color: #222;
 }
 
-/* Logo + text section */
+/* ===== LOGO SECTION ===== */
 .footer .logo-section {
   display: flex;
-  align-items: center; /* vertically center logo + text */
-  justify-content: center; /* center horizontally */
-  gap: 0.8rem; /* space between logo and text */
-  text-align: left; /* text stays aligned properly with logo */
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: left;
 }
 
 .footer .logo-section img.logo {
   max-width: 80px;
   height: auto;
+  content: url('/assets/logoo3.png');
 }
 
 .footer .logo-section .text-block {
   display: flex;
-  flex-direction: column; /* stack title + tagline */
+  flex-direction: column;
   align-items: flex-start;
 }
 
@@ -73,21 +89,21 @@
   margin: 0;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ccc;
+  color: #222;
 }
 
 .footer .logo-section .text-block p {
   margin: 0;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #666;
 }
 
-/* Footer bottom */
+/* ===== FOOTER BOTTOM ===== */
 #footer-bottom {
-  border-top: 1px solid #444;
+  border-top: 1px solid #e5e7eb;
   padding-top: 2rem;
   display: flex;
-  justify-content: center; /* centers all children */
+  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   text-align: center;
@@ -99,8 +115,7 @@
 
 #footer-bottom p {
   margin: 0;
-  color: #757575;
-  text-align: center;
+  color: #666;
 }
 
 #footer-bottom .footer-links {
@@ -111,51 +126,141 @@
 
 #footer-bottom .footer-links a {
   text-decoration: none;
-  color: #757575;
+  color: #555;
   transition: color 0.3s;
 }
 
 #footer-bottom .footer-links a:hover {
-  color: #ccc;
+  color: #222;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
+/* ===== BACK TO TOP BUTTON ===== */
+.back-to-top {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.back-to-top:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* ===== LIGHT THEME ===== */
+:host-context(body.light-theme) .footer .logo-section img.logo {
+  content: url('/assets/1bro.png');
+}
+
+/* ===== DARK THEME ===== */
+:host-context(body.dark-theme) .footer {
+  background: linear-gradient(180deg, #0b0f11 0%, #172126 60%);
+  color: #eaeff2;
+}
+:host-context(body.dark-theme) .footer .footer-section h3,
+:host-context(body.dark-theme) .footer .footer-section h3 i,
+:host-context(body.dark-theme) .footer .footer-section ul li a,
+:host-context(body.dark-theme) .footer .footer-section ul li a i,
+:host-context(body.dark-theme) .footer .logo-section .text-block h2,
+:host-context(body.dark-theme) .footer #footer-bottom p,
+:host-context(body.dark-theme) .footer #footer-bottom .footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+}
+:host-context(body.dark-theme) .footer .footer-section ul li a:hover,
+:host-context(body.dark-theme) .footer #footer-bottom .footer-links a:hover {
+  color: #fff;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* For medium screens (tablets) */
+@media (max-width: 992px) {
   .footer {
-    padding: 2rem 5%;
+    padding: 2.5rem 6%;
   }
 
   .footer .footer-container {
-    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-    text-align: center;
   }
 
   .footer .logo-section {
-    flex-direction: column;
-    align-items: center; // logo + text stack in center
+    justify-content: center;
     text-align: center;
+  }
+
+  .footer .logo-section .text-block {
+    align-items: center;
+  }
+
+  #footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }
 
-@media (max-width: 480px) {
+/* For small screens (phones) */
+@media (max-width: 600px) {
+  .footer {
+    padding: 2rem 1.5rem;
+  }
+
   .footer .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  .footer .footer-container .made-in-india {
-    justify-content: center;
-  }
-
-  #footer-bottom {
-    flex-direction: column; /* stack items vertically */
-    gap: 0.5rem;
+  .footer .footer-section {
+    text-align: center;
   }
 
   .footer .logo-section {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer .logo-section .text-block {
     align-items: center;
+  }
+
+  #footer-bottom {
+    font-size: 0.8rem;
+  }
+
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Ultra-small devices (<=400px) */
+@media (max-width: 400px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footer .logo-section img.logo {
+    max-width: 60px;
+  }
+
+  .footer .logo-section .text-block h2 {
+    font-size: 1.2rem;
+  }
+
+  .footer .logo-section .text-block p {
+    font-size: 0.8rem;
   }
 }

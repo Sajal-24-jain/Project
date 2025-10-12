@@ -1,16 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-footer',
-//   imports: [],
-//   templateUrl: './footer.component.html',
-//   styleUrl: './footer.component.scss'
-// })
-// export class FooterComponent {
-
-// }
-
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -32,5 +19,10 @@ export class FooterComponent {
       el.classList.add('active-section');
       setTimeout(() => el.classList.remove('active-section'), 1000);
     }
+  }
+
+  // Scroll to top
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
  }

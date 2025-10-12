@@ -1,16 +1,17 @@
+
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HttpClientModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class contactComponent {
+export class ContactComponent {
   formData: any = {
     name: '',
     email: '',
@@ -22,6 +23,8 @@ export class contactComponent {
   };
 
   showModal = false;
+  isSubmitting = false;
+  submitError: string | null = null;
 
   scriptUrl =
     'https://script.google.com/macros/s/AKfycbzGL6vNz6lUrt6CYN6Wo_QCAVL9PuVUYmTF3KMHAoyg_2BagPxsb6idqAIp9xQjVfSFrg/exec';
@@ -73,6 +76,8 @@ submit(form: NgForm) {
   }
 
   // If all validations pass, proceed with submission
+  this.submitError = null;
+  this.isSubmitting = true;
   const params = new URLSearchParams({
     name: this.formData.name,
     email: this.formData.email,
@@ -84,16 +89,50 @@ submit(form: NgForm) {
   }).toString();
 
   const url = `${this.scriptUrl}?${params}`;
+  // Try HttpClient POST first (CORS-enabled endpoint). Fallback to fetch GET no-cors if needed.
+  const payload = {
+    name: this.formData.name,
+    email: this.formData.email,
+    projectName: this.formData.projectName,
+    projectTech: this.formData.projectTech,
+    projectType: this.formData.projectType,
+    platform: this.formData.platform,
+    description: this.formData.description || ''
+  };
 
-  fetch(url, { method: 'GET', mode: 'no-cors' })
-    .then(() => {
-      this.showModal = true;
-      this.formData = {};
-      form.resetForm();
-      setTimeout(() => (this.showModal = false), 3000);
-    })
-    .catch((err) => console.error('Submission failed', err));
+  this.http.post(this.scriptUrl, payload).subscribe({
+    next: () => {
+      this.onSubmissionSuccess(form);
+    },
+    error: (err) => {
+      // If CORS or other errors occur, attempt a no-cors GET as a last resort (still best-effort)
+      console.warn('POST failed, falling back to fetch GET (no-cors)', err);
+      fetch(url, { method: 'GET', mode: 'no-cors' })
+        .then(() => this.onSubmissionSuccess(form))
+        .catch((fetchErr) => {
+          console.error('Submission failed', fetchErr);
+          this.submitError = 'Submission failed. Please try again later.';
+          this.isSubmitting = false;
+        });
+    }
+  });
 }
+
+  private onSubmissionSuccess(form: NgForm) {
+    this.showModal = true;
+    this.formData = {
+      name: '',
+      email: '',
+      projectName: '',
+      projectTech: '',
+      projectType: '',
+      platform: '',
+      description: ''
+    };
+    form.resetForm();
+    this.isSubmitting = false;
+    setTimeout(() => (this.showModal = false), 3000);
+  }
 
   closeModal() {
     this.showModal = false;

@@ -1,3 +1,4 @@
+
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
@@ -11,11 +12,12 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  isMenuOpen=false;
+  isMenuOpen = false;
   isHero = true;
   isMaintenance = true;
   currentLogo = 'assets/logoo3.png'; // default logo
   isDarkTheme: boolean = false;
+  activeLink: string = '';
 
 constructor(private router: Router) {
   // Detect route changes
@@ -48,13 +50,15 @@ private handleRouteChange(url: string) {
         const subscription = this.router.events
           .pipe(filter(event => event instanceof NavigationEnd))
           .subscribe(() => {
-            this.scrollToSection('hero');
+            this.scrollToSection(sectionId);
+            this.activeLink = sectionId;
             subscription.unsubscribe(); // clean up
           });
       });
     } else {
       // Already on home page, just scroll
       this.scrollToSection(sectionId);
+      this.activeLink = sectionId;
     }
   }
 
@@ -118,5 +122,20 @@ onWindowScroll() {
     this.isHero = heroBottom > 0;
     this.currentLogo = this.isHero ? 'assets/logoo3.png' : 'assets/1bro.png';
   }
+
+  // Detect active section
+  const sections = ['home', 'services', 'portfolio', 'about', 'contact'];
+  let current = '';
+  for (let section of sections) {
+    const el = document.getElementById(section);
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        current = section;
+        break;
+      }
+    }
+  }
+  this.activeLink = current;
 }
 }

@@ -14,12 +14,13 @@
 
     <div class="links-respo">
       <ul class="nav-links-r-n">
-        <li><a (click)="goToHome('home'); isMenuOpen=false">Home</a></li>
-        <li><a (click)="goToHome('services'); isMenuOpen=false">Services</a></li>
-        <li><a (click)="goToHome('portfolio'); isMenuOpen=false">Portfolio</a></li>
-        <li><a (click)="goToHome('about'); isMenuOpen=false">About</a></li>
-        <li><a (click)="goToHome('contact'); isMenuOpen=false">Contact</a></li>
+        <li><a (click)="goToHome('home'); isMenuOpen=false" [ngClass]="{ 'active': activeLink === 'home' }">Home</a></li>
+        <li><a (click)="goToHome('services'); isMenuOpen=false" [ngClass]="{ 'active': activeLink === 'services' }">Services</a></li>
+        <li><a (click)="goToHome('portfolio'); isMenuOpen=false" [ngClass]="{ 'active': activeLink === 'portfolio' }">Portfolio</a></li>
+        <li><a (click)="goToHome('about'); isMenuOpen=false" [ngClass]="{ 'active': activeLink === 'about' }">About</a></li>
+        <li><a (click)="goToHome('contact'); isMenuOpen=false" [ngClass]="{ 'active': activeLink === 'contact' }">Contact</a></li>
       </ul>
+      <button class="btn-quote-mobile" (click)="goToHome('contact'); isMenuOpen=false">Get Quote</button>
     </div>
   </div>
 
@@ -32,12 +33,14 @@
 
   <!-- Desktop Menu -->
   <ul class="nav-links">
-    <li><a (click)="goToHome('home')">Home</a></li>
-    <li><a (click)="goToHome('services')">Services</a></li>
-    <li><a (click)="goToHome('portfolio')">Portfolio</a></li>
-    <li><a (click)="goToHome('about')">About</a></li>
-    <li><a (click)="goToHome('contact')">Contact</a></li>
+    <li><a (click)="goToHome('home')" [ngClass]="{ 'active': activeLink === 'home' }">Home</a></li>
+    <li><a (click)="goToHome('services')" [ngClass]="{ 'active': activeLink === 'services' }">Services</a></li>
+    <li><a (click)="goToHome('portfolio')" [ngClass]="{ 'active': activeLink === 'portfolio' }">Portfolio</a></li>
+    <li><a (click)="goToHome('about')" [ngClass]="{ 'active': activeLink === 'about' }">About</a></li>
+    <li><a (click)="goToHome('contact')" [ngClass]="{ 'active': activeLink === 'contact' }">Contact</a></li>
   </ul>
+
+  <button class="btn-quote" (click)="goToHome('contact')">Get Quote</button>
 
   <button class="btn-theme" (click)="toggleTheme()">
   <i *ngIf="isDarkTheme" class="fas fa-moon"></i>
@@ -51,7 +54,7 @@
       <i *ngIf="!isDarkTheme" class="fas fa-sun"></i>
     </button>
 
-   <button class="hamburger" [class.active]="isMenuOpen" (click)="isMenuOpen = !isMenuOpen">
+   <button class="hamburger" [class.active]="isMenuOpen" (click)="isMenuOpen = !isMenuOpen" aria-label="Toggle menu" [attr.aria-expanded]="isMenuOpen">
   <span></span>
   <span></span>
   <span></span>
