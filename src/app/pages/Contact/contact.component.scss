@@ -444,7 +444,7 @@
 
 /* ================= DARK MODE (component-scoped) ================= */
 :host-context(body.dark-theme) #contact {
-  background: linear-gradient(180deg, #0b0f11 0%, #172126 60%);
+  // background: linear-gradient(180deg, #0b0f11 0%, #172126 60%);
   color: #e8eef6;
 
   .contact-container {
