@@ -41,7 +41,7 @@
     animation: fadeInLeft 0.6s ease-out 0.2s both;
 
     #logo {
-      width: 14vw;
+      width: 8vw;
       // height: 25vh;
       transition: transform 0.3s ease;
     }
@@ -504,11 +504,20 @@ body.light-theme .btn-theme {
 @media (max-width: 768px) {
   .navbar {
     padding: 0.8rem 1.5rem;
-    height: 12vh;
+    height: 4vh;
+    // display: none;
   }
 }
 
 @media (max-width: 500px) {
+  #logo{
+    // width: 6vw;
+    margin-right: 18vw ;
+    // background-color: red;
+    display: inline;
+    // height: 15vh;
+
+  }
   .nav-links {
     display: none !important;
   }
