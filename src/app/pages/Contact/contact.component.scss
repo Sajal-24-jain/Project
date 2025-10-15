@@ -338,7 +338,13 @@
     padding: 0.8rem; /* reduce padding slightly */
   }
 }
+@media (max-width:768px) {
+  
+  .illustration img{
+    display: none ;
+  }
 
+}
 @media (max-width: 500px) {
   #contact {
     padding: 1.2rem 0.4rem;
@@ -351,10 +357,7 @@
     border-radius: 16px;
   }
 
-  .illustration img {
-    max-width: 160px;
-    padding: 0.4rem;
-  }
+
 
   .form-section h2 {
     font-size: 1.6rem;
